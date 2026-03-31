@@ -3,8 +3,6 @@ name: Build Android APK
 on:
   push:
     branches: [main, master]
-  pull_request:
-    branches: [main, master]
   workflow_dispatch:
 
 permissions:
@@ -12,10 +10,8 @@ permissions:
 
 jobs:
   build:
-    name: Build APK (Debug & Release)
+    name: Build APK
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -26,68 +22,17 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      # 🌟 هذا السطر هو الذي سيحل مشكلة الـ AI وسيصنع ملفات البناء الناقصة 🌟
-      - name: Generate Gradle Wrapper
-        run: gradle wrapper
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew
-
-      # إنشاء مفتاح مؤقت لنسخة الـ Release
-      - name: Generate CI signing keystore
+      # 🌟 الحل الجذري: نستخدم gradle 8.5 مباشرة عبر سطر الأوامر بدلاً من الاعتماد على الملفات المعطوبة
+      - name: Build APK using Gradle 8.5
         run: |
-          mkdir -p app/keystore
-          keytool -genkeypair -v -keystore app/keystore/ci-release.jks -keyalg RSA -keysize 2048 -validity 10000 -alias ci -storepass ci_release_store -keypass ci_release_key -dname "CN=CI, OU=CI, O=DualSpaceOBS, L=Unknown, ST=Unknown, C=US"
+          chmod +x ./gradlew
+          ./gradlew wrapper --gradle-version 8.5
+          ./gradlew assembleDebug assembleRelease --no-daemon
 
-      # بناء التطبيق (النسخة العادية والنسخة النهائية)
-      - name: Build Debug & Release APK
-        env:
-          SIGNING_STORE_FILE: ../keystore/ci-release.jks
-          SIGNING_STORE_PASSWORD: ci_release_store
-          SIGNING_KEY_ALIAS: ci
-          SIGNING_KEY_PASSWORD: ci_release_key
-        run: |
-          ./gradlew assembleDebug assembleRelease --no-daemon --stacktrace
-
-      # تجميع الملفات لرفعها
-      - name: Upload Debug APK
+      - name: Upload APKs
         uses: actions/upload-artifact@v4
         with:
-          name: App-Debug-APK
-          path: app/build/outputs/apk/debug/*.apk
-
-      - name: Upload Release APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: App-Release-APK
-          path: app/build/outputs/apk/release/*.apk
-
-  release:
-    name: Create GitHub Release
-    needs: build
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Download Artifacts
-        uses: actions/download-artifact@v4
-        with:
-          path: artifacts/
-          merge-multiple: true
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: "v1.0.${{ github.run_number }}"
-          name: "Release v1.0.${{ github.run_number }}"
-          body: |
-            تحديث جديد للتطبيق وتم البناء بنجاح!
-            - تم البناء بواسطة GitHub Actions.
-          files: artifacts/*.apk
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: APKs
+          path: |
+            app/build/outputs/apk/debug/*.apk
+            app/build/outputs/apk/release/*.apk
