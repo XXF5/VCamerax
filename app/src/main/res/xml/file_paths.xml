@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Camera photo capture output -->
+    <external-files-path
+        name="camera_photos"
+        path="Pictures/" />
+
+    <!-- Camera video capture output -->
+    <external-files-path
+        name="camera_videos"
+        path="Movies/" />
+
+    <!-- Recording output directory -->
+    <external-files-path
+        name="recordings"
+        path="Recordings/" />
+
+    <!-- Screenshots output directory -->
+    <external-files-path
+        name="screenshots"
+        path="Screenshots/" />
+
+    <!-- App-specific cache directory -->
+    <cache-path
+        name="cache"
+        path="." />
+
+    <!-- Internal cache for temporary files -->
+    <files-path
+        name="internal_files"
+        path="." />
+
+    <!-- External cache for streaming buffers -->
+    <external-cache-path
+        name="external_cache"
+        path="." />
+
+    <!-- Shared media for gallery access -->
+    <external-media-path
+        name="shared_media"
+        path="." />
+
+    <!-- Root of external storage for exported files -->
+    <external-path
+        name="external_storage"
+        path="." />
+</paths>

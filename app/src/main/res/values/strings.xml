@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============================== -->
+    <!-- App Identity                   -->
+    <!-- ============================== -->
+    <string name="app_name">Dual Space OBS</string>
+    <string name="app_name_short">DSOBS</string>
+    <string name="app_version">1.0.0</string>
+
+    <!-- ============================== -->
+    <!-- Navigation Labels              -->
+    <!-- ============================== -->
+    <string name="nav_home">Home</string>
+    <string name="nav_apps">Apps</string>
+    <string name="nav_obs">OBS</string>
+    <string name="nav_camera">Camera</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- ============================== -->
+    <!-- Button Labels                  -->
+    <!-- ============================== -->
+    <string name="btn_start">Start</string>
+    <string name="btn_stop">Stop</string>
+    <string name="btn_record">Record</string>
+    <string name="btn_stream">Stream</string>
+    <string name="btn_clone">Clone</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_previous">Previous</string>
+    <string name="btn_finish">Finish</string>
+    <string name="btn_retry">Retry</string>
+    <string name="btn_refresh">Refresh</string>
+    <string name="btn_add">Add</string>
+    <string name="btn_remove">Remove</string>
+    <string name="btn_edit">Edit</string>
+    <string name="btn_apply">Apply</string>
+    <string name="btn_close">Close</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_yes">Yes</string>
+    <string name="btn_no">No</string>
+    <string name="btn_install">Install</string>
+    <string name="btn_uninstall">Uninstall</string>
+    <string name="btn_launch">Launch</string>
+    <string name="btn_screenshot">Screenshot</string>
+    <string name="btn_switch_camera">Switch Camera</string>
+    <string name="btn_test_connection">Test Connection</string>
+    <string name="btn_start_stream">Start Stream</string>
+    <string name="btn_stop_stream">Stop Stream</string>
+    <string name="btn_start_recording">Start Recording</string>
+    <string name="btn_stop_recording">Stop Recording</string>
+    <string name="btn_pause_recording">Pause Recording</string>
+    <string name="btn_resume_recording">Resume Recording</string>
+
+    <!-- ============================== -->
+    <!-- Dialog Messages                -->
+    <!-- ============================== -->
+    <string name="dialog_confirm_delete_title">Confirm Delete</string>
+    <string name="dialog_confirm_delete_message">Are you sure you want to delete \"%1$s\"? This action cannot be undone.</string>
+    <string name="dialog_confirm_uninstall_title">Uninstall App</string>
+    <string name="dialog_confirm_uninstall_message">Are you sure you want to uninstall %1$s from Dual Space?</string>
+    <string name="dialog_clone_progress_title">Cloning App</string>
+    <string name="dialog_clone_progress_message">Please wait while %1$s is being cloned…</string>
+    <string name="dialog_permission_title">Permission Required</string>
+    <string name="dialog_permission_camera_message">Camera access is required for streaming and recording. Please grant the permission to continue.</string>
+    <string name="dialog_permission_microphone_message">Microphone access is required for streaming with audio. Please grant the permission to continue.</string>
+    <string name="dialog_permission_storage_message">Storage access is required to save recordings and screenshots. Please grant the permission to continue.</string>
+    <string name="dialog_permission_overlay_message">Display over other apps permission is required for the floating control panel. Please grant the permission to continue.</string>
+    <string name="dialog_stop_stream_title">Stop Streaming</string>
+    <string name="dialog_stop_stream_message">Are you sure you want to stop the current stream? Your viewers will be disconnected.</string>
+    <string name="dialog_stop_recording_title">Stop Recording</string>
+    <string name="dialog_stop_recording_message">Are you sure you want to stop the current recording? The video will be saved.</string>
+    <string name="dialog_discard_recording_title">Discard Recording</string>
+    <string name="dialog_discard_recording_message">Are you sure you want to discard the current recording? This cannot be undone.</string>
+    <string name="dialog_clone_complete_title">Clone Complete</string>
+    <string name="dialog_clone_complete_message">%1$s has been successfully cloned. You can launch it from the Apps tab.</string>
+    <string name="dialog_clone_failed_title">Clone Failed</string>
+    <string name="dialog_clone_failed_message">Failed to clone %1$s. Please try again or check your storage space.</string>
+    <string name="dialog_insufficient_storage_title">Insufficient Storage</string>
+    <string name="dialog_insufficient_storage_message">Not enough storage space available. Please free up at least %1$s and try again.</string>
+    <string name="dialog_stream_key_invalid_title">Invalid Stream Key</string>
+    <string name="dialog_stream_key_invalid_message">The stream key appears to be invalid. Please check and re-enter your stream key.</string>
+
+    <!-- ============================== -->
+    <!-- Error Messages                 -->
+    <!-- ============================== -->
+    <string name="error_no_storage">Storage not available. Please insert an SD card or free up device storage.</string>
+    <string name="error_network_unavailable">Network is unavailable. Please check your internet connection.</string>
+    <string name="error_network_error">A network error occurred. Please try again later.</string>
+    <string name="error_encode_failed">Video encoding failed. Please try a lower quality preset or restart the app.</string>
+    <string name="error_audio_encode_failed">Audio encoding failed. Please check your microphone settings.</string>
+    <string name="error_stream_disconnected">Stream disconnected unexpectedly. Attempting to reconnect…</string>
+    <string name="error_stream_connection_failed">Failed to connect to the streaming server. Please check your settings and try again.</string>
+    <string name="error_camera_unavailable">Camera is not available or is being used by another application.</string>
+    <string name="error_microphone_unavailable">Microphone is not available or is being used by another application.</string>
+    <string name="error_file_write_failed">Failed to write file. Please check storage permissions.</string>
+    <string name="error_file_not_found">File not found: %1$s</string>
+    <string name="error_clone_already_exists">%1$s is already cloned in Dual Space.</string>
+    <string name="error_clone_unsupported">%1$s cannot be cloned because it is not supported.</string>
+    <string name="error_invalid_url">Invalid URL: %1$s</string>
+    <string name="error_empty_stream_key">Stream key cannot be empty.</string>
+    <string name="error_empty_server_url">Server URL cannot be empty.</string>
+    <string name="error_unknown">An unknown error occurred. Please try again.</string>
+
+    <!-- ============================== -->
+    <!-- Toast / Snackbar Messages      -->
+    <!-- ============================== -->
+    <string name="toast_recording_started">Recording started</string>
+    <string name="toast_recording_stopped">Recording saved to %1$s</string>
+    <string name="toast_recording_paused">Recording paused</string>
+    <string name="toast_recording_resumed">Recording resumed</string>
+    <string name="toast_stream_started">Stream started</string>
+    <string name="toast_stream_stopped">Stream ended</string>
+    <string name="toast_stream_reconnecting">Reconnecting to server…</string>
+    <string name="toast_screenshot_saved">Screenshot saved to %1$s</string>
+    <string name="toast_app_cloned">%1$s cloned successfully</string>
+    <string name="toast_app_removed">%1$s removed from Dual Space</string>
+    <string name="toast_connection_successful">Connection successful</string>
+    <string name="toast_connection_failed">Connection failed. Check your settings.</string>
+    <string name="toast_settings_saved">Settings saved</string>
+    <string name="toast_copied_to_clipboard">Copied to clipboard</string>
+    <string name="toast_no_apps_to_clone">No apps available to clone</string>
+    <string name="toast_grant_permission">Please grant the required permission</string>
+
+    <!-- ============================== -->
+    <!-- Settings Labels                -->
+    <!-- ============================== -->
+    <string name="settings_general">General</string>
+    <string name="settings_streaming">Streaming</string>
+    <string name="settings_recording">Recording</string>
+    <string name="settings_audio">Audio</string>
+    <string name="settings_video">Video</string>
+    <string name="settings_advanced">Advanced</string>
+    <string name="settings_about">About</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_notification">Notifications</string>
+    <string name="settings_auto_start">Auto-Start Stream</string>
+    <string name="settings_auto_start_desc">Automatically start streaming when the app launches</string>
+    <string name="settings_stream_key">Stream Key</string>
+    <string name="settings_server_url">Server URL</string>
+    <string name="settings_platform">Platform</string>
+    <string name="settings_video_resolution">Video Resolution</string>
+    <string name="settings_video_framerate">Frame Rate</string>
+    <string name="settings_video_bitrate">Video Bitrate</string>
+    <string name="settings_audio_bitrate">Audio Bitrate</string>
+    <string name="settings_audio_samplerate">Audio Sample Rate</string>
+    <string name="settings_audio_channels">Audio Channels</string>
+    <string name="settings_audio_encoder">Audio Encoder</string>
+    <string name="settings_video_encoder">Video Encoder</string>
+    <string name="settings_record_format">Recording Format</string>
+    <string name="settings_record_path">Recording Path</string>
+    <string name="settings_overlay_enabled">Floating Panel</string>
+    <string name="settings_overlay_enabled_desc">Show floating control panel over other apps</string>
+    <string name="settings_adaptive_bitrate">Adaptive Bitrate</string>
+    <string name="settings_adaptive_bitrate_desc">Automatically adjust bitrate based on network conditions</string>
+    <string name="settings_low_latency">Low Latency Mode</string>
+    <string name="settings_low_latency_desc">Reduce stream delay at the cost of quality</string>
+    <string name="settings_hw_encoding">Hardware Encoding</string>
+    <string name="settings_hw_encoding_desc">Use hardware encoder for better performance</string>
+    <string name="settings_noise_suppression">Noise Suppression</string>
+    <string name="settings_noise_suppression_desc">Reduce background noise in microphone input</string>
+    <string name="settings_echo_cancellation">Echo Cancellation</string>
+    <string name="settings_echo_cancellation_desc">Cancel echo from speaker output</string>
+    <string name="settings_use_front_camera">Use Front Camera</string>
+    <string name="settings_camera_resolution">Camera Resolution</string>
+    <string name="settings_virtual_camera_enabled">Virtual Camera</string>
+    <string name="settings_virtual_camera_enabled_desc">Enable virtual camera for other apps</string>
+    <string name="settings_keep_awake">Keep Screen Awake</string>
+    <string name="settings_keep_awake_desc">Prevent the screen from turning off while streaming</string>
+    <string name="settings_record_audio">Record Audio</string>
+    <string name="settings_record_audio_desc">Include audio in recordings</string>
+    <string name="settings_show_stats">Show Stats Overlay</string>
+    <string name="settings_show_stats_desc">Display bitrate, FPS, and duration while streaming</string>
+    <string name="settings_restart_required">Changes will take effect after restarting the app</string>
+    <string name="settings_privacy_policy">Privacy Policy</string>
+    <string name="settings_terms_of_service">Terms of Service</string>
+    <string name="settings_licenses">Open Source Licenses</string>
+    <string name="settings_check_updates">Check for Updates</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="settings_developer">Developer Options</string>
+
+    <!-- ============================== -->
+    <!-- Format Strings (Stats)         -->
+    <!-- ============================== -->
+    <string name="stat_bitrate">%1$d kbps</string>
+    <string name="stat_framerate">%1$.1f FPS</string>
+    <string name="stat_duration">%1$02d:%2$02d:%3$02d</string>
+    <string name="stat_resolution">%1$dx%2$d</string>
+    <string name="stat_dropped_frames">%1$d dropped</string>
+    <string name="stat_viewers">%1$d viewers</string>
+    <string name="stat_file_size">%1$s MB</string>
+    <string name="stat_cpu_usage">%1$d%% CPU</string>
+    <string name="stat_memory_usage">%1$d MB RAM</string>
+    <string name="stat_network_speed">%1$s KB/s</string>
+    <string name="stat_time_remaining">%1$s remaining</string>
+
+    <!-- ============================== -->
+    <!-- Platform Names                 -->
+    <!-- ============================== -->
+    <string name="platform_youtube">YouTube</string>
+    <string name="platform_twitch">Twitch</string>
+    <string name="platform_facebook">Facebook Live</string>
+    <string name="platform_tiktok">TikTok Live</string>
+    <string name="platform_instagram">Instagram Live</string>
+    <string name="platform_twitter">X (Twitter) Live</string>
+    <string name="platform_kick">Kick</string>
+    <string name="platform_custom">Custom RTMP</string>
+    <string name="platform_trovo">Trovo</string>
+    <string name="platform_dlive">DLive</string>
+    <string name="platform_nimo">Nimo TV</string>
+    <string name="platform_bilibili">Bilibili Live</string>
+
+    <!-- ============================== -->
+    <!-- Quality Preset Names           -->
+    <!-- ============================== -->
+    <string name="quality_custom">Custom</string>
+    <string name="quality_low">Low (360p)</string>
+    <string name="quality_medium">Medium (480p)</string>
+    <string name="quality_high">High (720p)</string>
+    <string name="quality_very_high">Very High (1080p)</string>
+    <string name="quality_ultra">Ultra (1440p)</string>
+    <string name="quality_4k">4K (2160p)</string>
+
+    <!-- ============================== -->
+    <!-- App List / Cloning             -->
+    <!-- ============================== -->
+    <string name="tab_all_apps">All Apps</string>
+    <string name="tab_cloned_apps">Cloned</string>
+    <string name="tab_system_apps">System</string>
+    <string name="search_apps">Search apps…</string>
+    <string name="no_cloned_apps">No cloned apps yet</string>
+    <string name="no_cloned_apps_desc">Tap the clone button on any app to create a dual instance</string>
+    <string name="app_size">%1$s MB</string>
+    <string name="app_version_label">v%1$s</string>
+    <string name="clone_wizard_title">Clone App</string>
+    <string name="clone_step_select">Select App</string>
+    <string name="clone_step_options">Options</string>
+    <string name="clone_step_name">Customize Name</string>
+    <string name="clone_step_icon">Choose Icon</string>
+    <string name="clone_step_confirm">Confirm</string>
+
+    <!-- ============================== -->
+    <!-- OBS Studio Labels              -->
+    <!-- ============================== -->
+    <string name="obs_scenes">Scenes</string>
+    <string name="obs_sources">Sources</string>
+    <string name="obs_mixer">Mixer</string>
+    <string name="obs_controls">Controls</string>
+    <string name="obs_add_scene">Add Scene</string>
+    <string name="obs_add_source">Add Source</string>
+    <string name="obs_source_camera">Camera</string>
+    <string name="obs_source_screen">Screen Capture</string>
+    <string name="obs_source_image">Image</string>
+    <string name="obs_source_text">Text</string>
+    <string name="obs_source_media">Media File</string>
+    <string name="obs_source_audio_input">Audio Input</string>
+    <string name="obs_source_audio_output">Audio Output</string>
+    <string name="obs_source_window_capture">Window Capture</string>
+    <string name="obs_source_game_capture">Game Capture</string>
+    <string name="obs_source_browser">Browser Source</string>
+    <string name="obs_source_color">Color Source</string>
+    <string name="obs_transform">Transform</string>
+    <string name="obs_filters">Filters</string>
+    <string name="obs_properties">Properties</string>
+
+    <!-- ============================== -->
+    <!-- Virtual Camera Labels          -->
+    <!-- ============================== -->
+    <string name="camera_preview">Camera Preview</string>
+    <string name="camera_tab_rear">Rear</string>
+    <string name="camera_tab_front">Front</string>
+    <string name="camera_resolution_label">Resolution</string>
+    <string name="camera_fps_label">Frame Rate</string>
+    <string name="camera_capture">Capture</string>
+
+    <!-- ============================== -->
+    <!-- Stream Setup Labels            -->
+    <!-- ============================== -->
+    <string name="stream_setup_title">Stream Setup</string>
+    <string name="stream_platform_label">Platform</string>
+    <string name="stream_server_label">Server URL</string>
+    <string name="stream_key_label">Stream Key</string>
+    <string name="stream_key_hint">Enter your stream key</string>
+    <string name="stream_quality_label">Quality</string>
+    <string name="stream_show_key">Show Key</string>
+    <string name="stream_hide_key">Hide Key</string>
+    <string name="stream_connecting">Connecting…</string>
+    <string name="stream_live">LIVE</string>
+    <string name="stream_offline">Offline</string>
+    <string name="stream_ready">Ready</string>
+
+    <!-- ============================== -->
+    <!-- Content Descriptions          -->
+    <!-- ============================== -->
+    <string name="content_desc_app_icon">App icon</string>
+    <string name="content_desc_floating_bubble">Floating control bubble</string>
+    <string name="content_desc_record_button">Record button</string>
+    <string name="content_desc_stream_button">Stream button</string>
+    <string name="content_desc_screenshot_button">Screenshot button</string>
+    <string name="content_desc_switch_camera">Switch camera</string>
+    <string name="content_desc_source_icon">Source type icon</string>
+    <string name="content_desc_drag_handle">Drag to reorder</string>
+    <string name="content_desc_toggle_source">Toggle source visibility</string>
+    <string name="content_desc_volume_slider">Volume slider</string>
+    <string name="content_desc_stats_overlay">Streaming statistics</string>
+    <string name="content_desc_step_indicator">Setup progress indicator</string>
+    <string name="content_desc_preview_surface">Camera preview</string>
+    <string name="content_desc_obs_preview">OBS scene preview</string>
+
+    <!-- ============================== -->
+    <!-- Miscellaneous                  -->
+    <!-- ============================== -->
+    <string name="empty_state_title">Nothing here yet</string>
+    <string name="loading">Loading…</string>
+    <string name="processing">Processing…</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="coming_soon">Coming Soon</string>
+    <string name="enabled">Enabled</string>
+    <string name="disabled">Disabled</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="channel_mono">Mono</string>
+    <string name="channel_stereo">Stereo</string>
+    <string name="format_mp4">MP4</string>
+    <string name="format_mkv">MKV</string>
+    <string name="format_ts">MPEG-TS</string>
+    <string name="encoder_aac">AAC</string>
+    <string name="encoder_opus">Opus</string>
+    <string name="encoder_h264">H.264</string>
+    <string name="encoder_h265">H.265 (HEVC)</string>
+    <string name="encoder_av1">AV1</string>
+    <string name="permission_camera_rationale">Dual Space OBS needs camera access to stream and record video.</string>
+    <string name="permission_microphone_rationale">Dual Space OBS needs microphone access to stream and record audio.</string>
+    <string name="permission_storage_rationale">Dual Space OBS needs storage access to save recordings and screenshots.</string>
+    <string name="permission_overlay_rationale">Dual Space OBS needs overlay permission to show the floating control panel.</string>
+    <string name="notification_streaming_title">Dual Space OBS — Streaming</string>
+    <string name="notification_streaming_text">Live to %1$s • %2$s</string>
+    <string name="notification_recording_title">Dual Space OBS — Recording</string>
+    <string name="notification_recording_text">Recording • %1$s</string>
+    <string name="notification_channel_streaming">Streaming</string>
+    <string name="notification_channel_recording">Recording</string>
+    <string name="notification_channel_service">Service</string>
+    <string name="stop">Stop</string>
+    <string name="live_indicator">● LIVE</string>
+    <string name="rec_indicator">● REC</string>
+</resources>

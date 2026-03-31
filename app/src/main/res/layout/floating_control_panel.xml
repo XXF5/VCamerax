@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_floating_panel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".ui.floating.FloatingControlService">
+
+    <!-- ================================ -->
+    <!-- Collapsed Bubble                  -->
+    <!-- ================================ -->
+    <ImageView
+        android:id="@+id/iv_floating_bubble"
+        style="@style/FloatingButton.Bubble"
+        android:visibility="visible"
+        android:src="@drawable/ic_floating_bubble"
+        app:tint="@color/accent_500" />
+
+    <!-- ================================ -->
+    <!-- Expanded Control Panel            -->
+    <!-- ================================ -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_expanded_panel"
+        android:layout_width="@dimen/floating_panel_width"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_floating_panel"
+        android:padding="@dimen/floating_panel_padding"
+        android:elevation="@dimen/elevation_dialog"
+        android:visibility="gone">
+
+        <!-- Panel Title -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_panel_title"
+            style="@style/TextAppearance.DualSpaceOBS.LabelMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Status Badge -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_panel_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_micro"
+            android:paddingVertical="@dimen/padding_tiny"
+            android:background="@drawable/bg_status_badge"
+            tools:text="● LIVE"
+            style="@style/TextAppearance.DualSpaceOBS.LabelSmall"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Duration -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_panel_duration"
+            style="@style/TextAppearance.DualSpaceOBS.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_micro"
+            tools:text="00:15:32"
+            app:layout_constraintTop_toBottomOf="@id/tv_panel_title"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- ================================ -->
+        <!-- Button Grid (3x2)                 -->
+        <!-- ================================ -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_col_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.33" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_col_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.66" />
+
+        <!-- Row 1: Record | Stream | Screenshot -->
+        <!-- Record -->
+        <LinearLayout
+            android:id="@+id/btn_panel_record"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/spacing_floating_buttons"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:layout_constraintTop_toBottomOf="@id/tv_panel_duration"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline_col_1">
+
+            <ImageView
+                android:layout_width="@dimen/floating_button_expanded_size"
+                android:layout_height="@dimen/floating_button_expanded_size"
+                android:src="@drawable/ic_record"
+                android:contentDescription="@string/content_desc_record_button"
+                app:tint="@color/status_recording_red" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.DualSpaceOBS.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:text="@string/btn_record"
+                android:textColor="@color/text_secondary" />
+
+        </LinearLayout>
+
+        <!-- Stream -->
+        <LinearLayout
+            android:id="@+id/btn_panel_stream"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/spacing_floating_buttons"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:layout_constraintTop_toBottomOf="@id/tv_panel_duration"
+            app:layout_constraintStart_toEndOf="@id/guideline_col_1"
+            app:layout_constraintEnd_toStartOf="@id/guideline_col_2">
+
+            <ImageView
+                android:layout_width="@dimen/floating_button_expanded_size"
+                android:layout_height="@dimen/floating_button_expanded_size"
+                android:src="@drawable/ic_stream"
+                android:contentDescription="@string/content_desc_stream_button"
+                app:tint="@color/status_streaming_green" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.DualSpaceOBS.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:text="@string/btn_stream"
+                android:textColor="@color/text_secondary" />
+
+        </LinearLayout>
+
+        <!-- Screenshot -->
+        <LinearLayout
+            android:id="@+id/btn_panel_screenshot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/spacing_floating_buttons"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:layout_constraintTop_toBottomOf="@id/tv_panel_duration"
+            app:layout_constraintStart_toEndOf="@id/guideline_col_2"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/floating_button_expanded_size"
+                android:layout_height="@dimen/floating_button_expanded_size"
+                android:src="@drawable/ic_screenshot"
+                android:contentDescription="@string/content_desc_screenshot_button"
+                app:tint="@color/icon_tint" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.DualSpaceOBS.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:text="@string/btn_screenshot"
+                android:textColor="@color/text_secondary" />
+
+        </LinearLayout>
+
+        <!-- Row 2: Camera | Mic | Close -->
+        <!-- Camera -->
+        <LinearLayout
+            android:id="@+id/btn_panel_camera"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/spacing_floating_buttons"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/btn_panel_record"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline_col_1">
+
+            <ImageView
+                android:layout_width="@dimen/floating_button_expanded_size"
+                android:layout_height="@dimen/floating_button_expanded_size"
+                android:src="@drawable/ic_switch_camera"
+                android:contentDescription="@string/content_desc_switch_camera"
+                app:tint="@color/icon_tint" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.DualSpaceOBS.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:text="@string/btn_switch_camera"
+                android:textColor="@color/text_secondary" />
+
+        </LinearLayout>
+
+        <!-- Mic Mute/Unmute -->
+        <LinearLayout
+            android:id="@+id/btn_panel_mic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/spacing_floating_buttons"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/btn_panel_stream"
+            app:layout_constraintStart_toEndOf="@id/guideline_col_1"
+            app:layout_constraintEnd_toStartOf="@id/guideline_col_2">
+
+            <ImageView
+                android:id="@+id/iv_mic_icon"
+                android:layout_width="@dimen/floating_button_expanded_size"
+                android:layout_height="@dimen/floating_button_expanded_size"
+                android:src="@drawable/ic_mic"
+                android:contentDescription="@string/dialog_permission_microphone_message"
+                app:tint="@color/icon_tint" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_mic_label"
+                style="@style/TextAppearance.DualSpaceOBS.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:text="@string/obs_source_audio_input"
+                android:textColor="@color/text_secondary" />
+
+        </LinearLayout>
+
+        <!-- Close Panel -->
+        <LinearLayout
+            android:id="@+id/btn_panel_close"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/spacing_floating_buttons"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/btn_panel_screenshot"
+            app:layout_constraintStart_toEndOf="@id/guideline_col_2"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/floating_button_expanded_size"
+                android:layout_height="@dimen/floating_button_expanded_size"
+                android:src="@drawable/ic_close"
+                android:contentDescription="@string/btn_close"
+                app:tint="@color/status_error_red" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.DualSpaceOBS.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:text="@string/btn_close"
+                android:textColor="@color/text_secondary" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

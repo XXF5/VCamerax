@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_stream_setup"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.stream.StreamSetupActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_primary">
+
+        <!-- Toolbar -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar_stream"
+            style="@style/Widget.DualSpaceOBS.Toolbar"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/toolbar_height"
+            app:title="@string/stream_setup_title"
+            app:navigationIcon="@drawable/ic_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_stream"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/padding_standard"
+                android:paddingVertical="@dimen/padding_medium">
+
+                <!-- ================================ -->
+                <!-- Platform Selector                  -->
+                <!-- ================================ -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_platform_label"
+                    style="@style/TextAppearance.DualSpaceOBS.LabelMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stream_platform_label"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spinner_platform"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:backgroundTint="@color/text_primary"
+                    android:padding="@dimen/padding_small"
+                    app:layout_constraintTop_toBottomOf="@id/tv_platform_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- ================================ -->
+                <!-- Server URL                        -->
+                <!-- ================================ -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_server_url"
+                    style="@style/Widget.DualSpaceOBS.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_standard"
+                    android:hint="@string/stream_server_label"
+                    app:startIconDrawable="@drawable/ic_server"
+                    app:startIconTint="@color/text_hint"
+                    app:layout_constraintTop_toBottomOf="@id/spinner_platform"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_server_url"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textUri"
+                        android:maxLines="1"
+                        android:textColor="@color/text_primary"
+                        tools:text="rtmp://a.rtmp.youtube.com/live2" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- ================================ -->
+                <!-- Stream Key                        -->
+                <!-- ================================ -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_stream_key"
+                    style="@style/Widget.DualSpaceOBS.TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_standard"
+                    android:hint="@string/stream_key_label"
+                    app:startIconDrawable="@drawable/ic_key"
+                    app:startIconTint="@color/text_hint"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="@color/text_hint"
+                    app:counterEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/til_server_url"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_stream_key"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:imeOptions="actionDone"
+                        android:textColor="@color/text_primary" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- ================================ -->
+                <!-- Quality Preset                    -->
+                <!-- ================================ -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_quality_label"
+                    style="@style/TextAppearance.DualSpaceOBS.LabelMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:text="@string/stream_quality_label"
+                    app:layout_constraintTop_toBottomOf="@id/til_stream_key"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spinner_quality"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:backgroundTint="@color/text_primary"
+                    android:padding="@dimen/padding_small"
+                    app:layout_constraintTop_toBottomOf="@id/tv_quality_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- Quality summary card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_quality_summary"
+                    style="@style/Widget.DualSpaceOBS.MaterialCard.Filled"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    app:layout_constraintTop_toBottomOf="@id/spinner_quality"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_medium">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="spaceBetween">
+
+                            <!-- Resolution -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    style="@style/StatsCard.Label"
+                                    android:text="Resolution"
+                                    android:layout_gravity="center" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/tv_quality_resolution"
+                                    style="@style/StatsCard.Value"
+                                    android:layout_gravity="center"
+                                    tools:text="1920x1080" />
+
+                            </LinearLayout>
+
+                            <!-- Bitrate -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    style="@style/StatsCard.Label"
+                                    android:text="Bitrate"
+                                    android:layout_gravity="center" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/tv_quality_bitrate"
+                                    style="@style/StatsCard.Value"
+                                    android:layout_gravity="center"
+                                    tools:text="4500 kbps" />
+
+                            </LinearLayout>
+
+                            <!-- FPS -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    style="@style/StatsCard.Label"
+                                    android:text="Frame Rate"
+                                    android:layout_gravity="center" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/tv_quality_fps"
+                                    style="@style/StatsCard.Value"
+                                    android:layout_gravity="center"
+                                    tools:text="30 FPS" />
+
+                            </LinearLayout>
+
+                            <!-- Encoder -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    style="@style/StatsCard.Label"
+                                    android:text="Encoder"
+                                    android:layout_gravity="center" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/tv_quality_encoder"
+                                    style="@style/StatsCard.Value"
+                                    android:layout_gravity="center"
+                                    tools:text="H.264" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- ================================ -->
+                <!-- Test Connection Button             -->
+                <!-- ================================ -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_test_connection"
+                    style="@style/Widget.DualSpaceOBS.Button.Outlined"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:text="@string/btn_test_connection"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    app:icon="@drawable/ic_test_connection"
+                    app:iconGravity="textStart"
+                    app:layout_constraintTop_toBottomOf="@id/card_quality_summary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_half" />
+
+                <!-- ================================ -->
+                <!-- Start Stream Button                -->
+                <!-- ================================ -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_start_stream"
+                    style="@style/Widget.DualSpaceOBS.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:text="@string/btn_start_stream"
+                    android:backgroundTint="@color/status_streaming_green_dark"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    app:icon="@drawable/ic_stream"
+                    app:iconGravity="textStart"
+                    app:layout_constraintTop_toBottomOf="@id/card_quality_summary"
+                    app:layout_constraintStart_toEndOf="@id/guideline_half"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- Mid-point guideline for button spacing -->
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_half"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <!-- Connection status text -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_connection_status"
+                    style="@style/TextAppearance.DualSpaceOBS.BodySmall"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/margin_standard"
+                    android:textAlignment="center"
+                    android:visibility="gone"
+                    tools:text="Connection successful!"
+                    app:layout_constraintTop_toBottomOf="@id/btn_test_connection"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

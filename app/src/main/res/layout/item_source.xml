@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_source_item"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_source_height"
+    android:background="@color/background_card"
+    android:foreground="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:paddingHorizontal="@dimen/padding_small"
+    android:paddingVertical="@dimen/padding_micro">
+
+    <!-- Drag Handle -->
+    <ImageView
+        android:id="@+id/iv_drag_handle"
+        style="@style/DragHandle"
+        android:layout_marginEnd="@dimen/margin_small"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Source Type Icon -->
+    <ImageView
+        android:id="@+id/iv_source_icon"
+        android:layout_width="@dimen/source_icon_size"
+        android:layout_height="@dimen/source_icon_size"
+        android:layout_marginStart="@dimen/margin_small"
+        android:contentDescription="@string/content_desc_source_icon"
+        android:scaleType="fitCenter"
+        android:tint="@color/icon_tint"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_drag_handle"
+        tools:src="@drawable/ic_camera" />
+
+    <!-- Source Name -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_source_name"
+        style="@style/TextAppearance.DualSpaceOBS.BodyLarge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_source_type"
+        app:layout_constraintStart_toEndOf="@id/iv_source_icon"
+        app:layout_constraintEnd_toStartOf="@id/switch_source"
+        tools:text="Camera 1" />
+
+    <!-- Source Type Subtitle -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_source_type"
+        style="@style/TextAppearance.DualSpaceOBS.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        app:layout_constraintTop_toBottomOf="@id/tv_source_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_source_icon"
+        tools:text="Camera Source" />
+
+    <!-- Visibility Switch -->
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:checked="true"
+        android:contentDescription="@string/content_desc_toggle_source"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_source_more"
+        app:thumbTint="@color/switch_thumb"
+        app:trackTint="@color/switch_track" />
+
+    <!-- More Options Button -->
+    <ImageButton
+        android:id="@+id/btn_source_more"
+        style="@style/Widget.DualSpaceOBS.Button.Icon"
+        android:layout_width="@dimen/icon_button_size"
+        android:layout_height="@dimen/icon_button_size"
+        android:src="@drawable/ic_more_vert"
+        android:contentDescription="@string/btn_edit"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,41 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+*.apk
+*.ap_
+*.dex
+*.class
+gen/
+bin/
+out/
+.navigation/
+*.log
+
+# Built application files
+*.aab
+*.apks
+
+# Keystore files (keep them safe!)
+*.jks
+*.keystore
+
+# Google Services
+google-services.json
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+*.swp
+*.swo
+*~
+.vscode/

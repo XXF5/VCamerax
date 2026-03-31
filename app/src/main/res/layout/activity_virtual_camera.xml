@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_virtual_camera"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary"
+    tools:context=".ui.camera.VirtualCameraActivity">
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_camera"
+        style="@style/Widget.DualSpaceOBS.Toolbar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/toolbar_height"
+        app:title="@string/nav_camera"
+        app:menu="@menu/menu_camera"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Camera Preview SurfaceView -->
+    <SurfaceView
+        android:id="@+id/surface_camera_preview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@color/background_secondary"
+        android:contentDescription="@string/content_desc_preview_surface"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_camera"
+        app:layout_constraintBottom_toTopOf="@id/tab_layout_camera_source"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Recording indicator overlay -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_recording_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:visibility="gone"
+        android:drawableStart="@drawable/ic_rec_dot"
+        android:drawablePadding="@dimen/padding_micro"
+        android:text="@string/rec_indicator"
+        style="@style/RecIndicator.Text"
+        app:layout_constraintTop_toTopOf="@id/surface_camera_preview"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Duration timer overlay -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_camera_duration"
+        style="@style/TextAppearance.DualSpaceOBS.Overlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:visibility="gone"
+        tools:text="00:05:23"
+        app:layout_constraintTop_toTopOf="@id/surface_camera_preview"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- TabLayout for source types -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout_camera_source"
+        style="@style/TabLayout.CameraSource"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/background_surface"
+        app:layout_constraintBottom_toTopOf="@id/layout_camera_controls"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/camera_tab_rear" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/camera_tab_front" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- Bottom Controls -->
+    <LinearLayout
+        android:id="@+id/layout_camera_controls"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/padding_standard"
+        android:paddingVertical="@dimen/padding_medium"
+        android:background="@color/background_surface"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Row 1: Resolution & FPS spinners -->
+        <LinearLayout
+            android:id="@+id/layout_camera_settings_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:visibility="gone">
+
+            <!-- Resolution Spinner -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_resolution_label"
+                style="@style/TextAppearance.DualSpaceOBS.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/camera_resolution_label"
+                android:layout_marginEnd="@dimen/margin_small" />
+
+            <Spinner
+                android:id="@+id/spinner_resolution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_standard"
+                android:backgroundTint="@color/text_primary"
+                android:padding="@dimen/padding_small" />
+
+            <!-- FPS Spinner -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_fps_label"
+                style="@style/TextAppearance.DualSpaceOBS.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/camera_fps_label"
+                android:layout_marginEnd="@dimen/margin_small" />
+
+            <Spinner
+                android:id="@+id/spinner_fps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/text_primary"
+                android:padding="@dimen/padding_small" />
+
+        </LinearLayout>
+
+        <!-- Row 2: Action buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- Switch Camera -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_switch_camera"
+                style="@style/Widget.DualSpaceOBS.Button.Icon.Outlined"
+                android:layout_width="@dimen/control_button_size"
+                android:layout_height="@dimen/control_button_size"
+                android:layout_marginEnd="@dimen/spacing_control_buttons"
+                app:icon="@drawable/ic_switch_camera"
+                android:contentDescription="@string/content_desc_switch_camera"
+                app:iconSize="@dimen/icon_standard" />
+
+            <!-- Capture / Record -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_capture"
+                style="@style/Widget.DualSpaceOBS.Button.Record"
+                android:layout_width="@dimen/control_button_size"
+                android:layout_height="@dimen/control_button_size"
+                android:layout_marginEnd="@dimen/spacing_control_buttons"
+                app:icon="@drawable/ic_record"
+                android:contentDescription="@string/camera_capture"
+                app:iconSize="@dimen/icon_large" />
+
+            <!-- Settings -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_camera_settings"
+                style="@style/Widget.DualSpaceOBS.Button.Icon.Outlined"
+                android:layout_width="@dimen/control_button_size"
+                android:layout_height="@dimen/control_button_size"
+                app:icon="@drawable/ic_settings"
+                android:contentDescription="@string/nav_settings"
+                app:iconSize="@dimen/icon_standard" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

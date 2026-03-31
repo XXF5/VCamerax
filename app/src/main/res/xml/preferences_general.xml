@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- ══════════════════════════════════ -->
+    <!-- Appearance                         -->
+    <!-- ══════════════════════════════════ -->
+    <PreferenceCategory
+        android:title="Appearance"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            android:key="pref_theme"
+            android:title="@string/settings_theme"
+            android:summary="Choose the app theme"
+            android:entries="@array/theme_entries"
+            android:entryValues="@array/theme_values"
+            android:defaultValue="dark"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="pref_language"
+            android:title="@string/settings_language"
+            android:summary="Select display language"
+            android:entries="@array/language_entries"
+            android:entryValues="@array/language_values"
+            android:defaultValue="en"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <!-- ══════════════════════════════════ -->
+    <!-- Notifications                      -->
+    <!-- ══════════════════════════════════ -->
+    <PreferenceCategory
+        android:title="@string/settings_notification"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat
+            android:key="pref_notifications_enabled"
+            android:title="Enable Notifications"
+            android:summary="Show notifications for stream status"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="pref_notif_stream_status"
+            android:title="Stream Status Notifications"
+            android:summary="Notify when stream starts, stops, or disconnects"
+            android:defaultValue="true"
+            android:dependency="pref_notifications_enabled" />
+
+        <SwitchPreferenceCompat
+            android:key="pref_notif_recording_status"
+            android:title="Recording Status Notifications"
+            android:summary="Notify when recording starts or stops"
+            android:defaultValue="true"
+            android:dependency="pref_notifications_enabled" />
+
+    </PreferenceCategory>
+
+    <!-- ══════════════════════════════════ -->
+    <!-- Behavior                           -->
+    <!-- ══════════════════════════════════ -->
+    <PreferenceCategory
+        android:title="Behavior"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat
+            android:key="pref_auto_start"
+            android:title="@string/settings_auto_start"
+            android:summary="@string/settings_auto_start_desc"
+            android:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            android:key="pref_keep_awake"
+            android:title="@string/settings_keep_awake"
+            android:summary="@string/settings_keep_awake_desc"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="pref_overlay_enabled"
+            android:title="@string/settings_overlay_enabled"
+            android:summary="@string/settings_overlay_enabled_desc"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <!-- ══════════════════════════════════ -->
+    <!-- Advanced                           -->
+    <!-- ══════════════════════════════════ -->
+    <PreferenceCategory
+        android:title="@string/settings_advanced"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat
+            android:key="pref_developer_mode"
+            android:title="@string/settings_developer"
+            android:summary="Enable developer options and debug logging"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="pref_clear_cache"
+            android:title="Clear Cache"
+            android:summary="Clear temporary files and caches"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            android:key="pref_reset_defaults"
+            android:title="Reset to Defaults"
+            android:summary="Reset all settings to factory defaults"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

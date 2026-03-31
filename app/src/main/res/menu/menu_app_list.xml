@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.fragments.AppsFragment">
+
+    <!-- Search Apps -->
+    <item
+        android:id="@+id/action_search_apps"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/search_apps"
+        android:contentDescription="Search apps"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="always|collapseActionView" />
+
+    <!-- Sort -->
+    <item
+        android:id="@+id/action_sort"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="Sort"
+        android:contentDescription="Sort apps"
+        app:showAsAction="ifRoom" />
+
+    <!-- Show System Apps -->
+    <item
+        android:id="@+id/action_show_system"
+        android:title="Show System Apps"
+        android:contentDescription="Toggle system apps visibility"
+        app:showAsAction="never"
+        android:checkable="true" />
+
+</menu>

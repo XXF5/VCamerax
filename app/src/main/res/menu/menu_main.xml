@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activities.MainActivity">
+
+    <!-- Notifications -->
+    <item
+        android:id="@+id/action_notifications"
+        android:icon="@drawable/ic_settings"
+        android:title="Notifications"
+        android:contentDescription="Notifications"
+        app:showAsAction="ifRoom"
+        app:iconTint="@color/text_primary" />
+
+    <!-- Help & Feedback -->
+    <item
+        android:id="@+id/action_help"
+        android:title="Help &amp; Feedback"
+        android:contentDescription="Help and feedback"
+        app:showAsAction="never" />
+
+    <!-- Check for Updates -->
+    <item
+        android:id="@+id/action_check_updates"
+        android:title="Check for Updates"
+        android:contentDescription="Check for updates"
+        app:showAsAction="never" />
+
+    <!-- About -->
+    <item
+        android:id="@+id/action_about"
+        android:title="@string/settings_about"
+        android:contentDescription="About app"
+        app:showAsAction="never" />
+
+</menu>

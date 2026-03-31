@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_obs_studio"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary"
+    tools:context=".ui.obs.ObsStudioActivity">
+
+    <!-- ================================ -->
+    <!-- Toolbar                          -->
+    <!-- ================================ -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_obs"
+        style="@style/Widget.DualSpaceOBS.Toolbar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/toolbar_height"
+        app:title="@string/nav_obs"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Live / Rec indicator in toolbar -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_status_badge"
+            style="@style/LiveIndicator.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:visibility="gone"
+            tools:text="@string/live_indicator" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <!-- ================================ -->
+    <!-- Stats Overlay (on top of preview) -->
+    <!-- ================================ -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_stats_overlay"
+        style="@style/StatsOverlay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_small"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_obs"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Bitrate -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_stat_bitrate"
+            style="@style/StatsOverlay.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="4500 kbps" />
+
+        <!-- Separator -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_stat_separator_1"
+            style="@style/StatsOverlay.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  •  "
+            android:layout_marginStart="@dimen/margin_tiny"
+            app:layout_constraintStart_toEndOf="@id/tv_stat_bitrate" />
+
+        <!-- FPS -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_stat_fps"
+            style="@style/StatsOverlay.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_tiny"
+            tools:text="30 FPS"
+            app:layout_constraintStart_toEndOf="@id/tv_stat_separator_1" />
+
+        <!-- Separator -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_stat_separator_2"
+            style="@style/StatsOverlay.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  •  "
+            app:layout_constraintStart_toEndOf="@id/tv_stat_fps" />
+
+        <!-- Duration -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_stat_duration"
+            style="@style/StatsOverlay.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_tiny"
+            tools:text="00:15:32"
+            app:layout_constraintStart_toEndOf="@id/tv_stat_separator_2" />
+
+        <!-- Dropped Frames -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_stat_dropped"
+            style="@style/StatsOverlay.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/status_warning_orange"
+            android:layout_marginStart="@dimen/margin_micro"
+            android:visibility="gone"
+            tools:text="12 dropped"
+            app:layout_constraintStart_toEndOf="@id/tv_stat_separator_2"
+            app:layout_constraintTop_toBottomOf="@id/tv_stat_duration" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ================================ -->
+    <!-- Scene Preview SurfaceView       -->
+    <!-- ================================ -->
+    <SurfaceView
+        android:id="@+id/surface_preview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@color/background_secondary"
+        android:contentDescription="@string/content_desc_obs_preview"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_obs"
+        app:layout_constraintBottom_toTopOf="@id/rv_scenes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ================================ -->
+    <!-- Scenes RecyclerView (Horizontal) -->
+    <!-- ================================ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_scenes_label"
+        style="@style/TextAppearance.DualSpaceOBS.LabelMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/obs_scenes"
+        android:layout_marginStart="@dimen/margin_medium"
+        app:layout_constraintBottom_toTopOf="@id/rv_scenes"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_add_scene"
+        style="@style/Widget.DualSpaceOBS.Button.Icon"
+        android:layout_width="@dimen/icon_button_size"
+        android:layout_height="@dimen/icon_button_size"
+        android:src="@drawable/ic_add"
+        android:contentDescription="@string/obs_add_scene"
+        android:layout_marginEnd="@dimen/margin_medium"
+        app:layout_constraintBottom_toTopOf="@id/rv_scenes"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_scenes"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/scene_list_height"
+        android:orientation="horizontal"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/padding_medium"
+        android:paddingEnd="@dimen/padding_medium"
+        android:background="@color/background_surface"
+        app:layout_constraintBottom_toTopOf="@id/rv_sources"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/item_scene" />
+
+    <!-- ================================ -->
+    <!-- Sources RecyclerView (Vertical)  -->
+    <!-- ================================ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_sources_label"
+        style="@style/TextAppearance.DualSpaceOBS.LabelMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/obs_sources"
+        android:layout_marginStart="@dimen/margin_medium"
+        app:layout_constraintBottom_toTopOf="@id/rv_sources"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_add_source"
+        style="@style/Widget.DualSpaceOBS.Button.Icon"
+        android:layout_width="@dimen/icon_button_size"
+        android:layout_height="@dimen/icon_button_size"
+        android:src="@drawable/ic_add"
+        android:contentDescription="@string/obs_add_source"
+        android:layout_marginEnd="@dimen/margin_medium"
+        app:layout_constraintBottom_toTopOf="@id/rv_sources"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_sources"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:clipToPadding="false"
+        android:paddingVertical="@dimen/padding_small"
+        android:background="@color/background_surface"
+        app:layout_constraintBottom_toTopOf="@id/layout_controls"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="200dp"
+        tools:listitem="@layout/item_source" />
+
+    <!-- ================================ -->
+    <!-- Audio Mixer Section              -->
+    <!-- ================================ -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_mixer"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/mixer_section_height"
+        android:background="@color/background_surface"
+        android:paddingHorizontal="@dimen/padding_medium"
+        android:paddingVertical="@dimen/padding_small"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/layout_controls"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_mixer_label"
+            style="@style/TextAppearance.DualSpaceOBS.LabelSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/obs_mixer"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Mic volume -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_mic_label"
+            style="@style/TextAppearance.DualSpaceOBS.BodySmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mic"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/tv_mixer_label"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <SeekBar
+            android:id="@+id/seekbar_mic_volume"
+            style="@style/VolumeSlider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/tv_mixer_label"
+            app:layout_constraintStart_toEndOf="@id/tv_mic_label"
+            app:layout_constraintEnd_toStartOf="@id/tv_mic_volume_value" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_mic_volume_value"
+            style="@style/TextAppearance.DualSpaceOBS.Caption"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:text="80"
+            app:layout_constraintTop_toBottomOf="@id/tv_mixer_label"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- System audio volume -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_system_label"
+            style="@style/TextAppearance.DualSpaceOBS.BodySmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="System"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/seekbar_mic_volume"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <SeekBar
+            android:id="@+id/seekbar_system_volume"
+            style="@style/VolumeSlider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/seekbar_mic_volume"
+            app:layout_constraintStart_toEndOf="@id/tv_system_label"
+            app:layout_constraintEnd_toStartOf="@id/tv_system_volume_value" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_system_volume_value"
+            style="@style/TextAppearance.DualSpaceOBS.Caption"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:text="100"
+            app:layout_constraintTop_toBottomOf="@id/seekbar_mic_volume"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ================================ -->
+    <!-- Control Buttons Row              -->
+    <!-- ================================ -->
+    <LinearLayout
+        android:id="@+id/layout_controls"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/padding_standard"
+        android:paddingVertical="@dimen/padding_medium"
+        android:background="@color/background_surface"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Screenshot -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_screenshot"
+            style="@style/Widget.DualSpaceOBS.Button.Icon.Outlined"
+            android:layout_width="@dimen/control_button_size"
+            android:layout_height="@dimen/control_button_size"
+            android:layout_marginEnd="@dimen/spacing_control_buttons"
+            android:src="@drawable/ic_screenshot"
+            android:contentDescription="@string/content_desc_screenshot_button"
+            app:icon="@drawable/ic_screenshot"
+            app:iconSize="@dimen/icon_standard" />
+
+        <!-- Record -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_record"
+            style="@style/Widget.DualSpaceOBS.Button.Record"
+            android:layout_width="@dimen/control_button_size"
+            android:layout_height="@dimen/control_button_size"
+            android:layout_marginEnd="@dimen/spacing_control_buttons"
+            android:src="@drawable/ic_record"
+            android:contentDescription="@string/content_desc_record_button"
+            app:icon="@drawable/ic_record"
+            app:iconSize="@dimen/icon_large" />
+
+        <!-- Stream -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_stream"
+            style="@style/Widget.DualSpaceOBS.Button.Stream"
+            android:layout_width="@dimen/control_button_size"
+            android:layout_height="@dimen/control_button_size"
+            android:layout_marginEnd="@dimen/spacing_control_buttons"
+            android:src="@drawable/ic_stream"
+            android:contentDescription="@string/content_desc_stream_button"
+            app:icon="@drawable/ic_stream"
+            app:iconSize="@dimen/icon_large" />
+
+        <!-- Settings -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_obs_settings"
+            style="@style/Widget.DualSpaceOBS.Button.Icon.Outlined"
+            android:layout_width="@dimen/control_button_size"
+            android:layout_height="@dimen/control_button_size"
+            android:src="@drawable/ic_settings"
+            android:contentDescription="@string/nav_settings"
+            app:icon="@drawable/ic_settings"
+            app:iconSize="@dimen/icon_standard" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

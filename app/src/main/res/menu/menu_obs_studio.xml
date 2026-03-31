@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activities.OBSStudioActivity">
+
+    <!-- Settings -->
+    <item
+        android:id="@+id/action_obs_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/nav_settings"
+        android:contentDescription="Settings"
+        app:showAsAction="ifRoom"
+        app:iconTint="@color/text_primary" />
+
+    <!-- Add Source -->
+    <item
+        android:id="@+id/action_add_source"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/obs_add_source"
+        android:contentDescription="Add source"
+        app:showAsAction="ifRoom"
+        app:iconTint="@color/text_primary" />
+
+    <!-- Scene List -->
+    <item
+        android:id="@+id/action_scene_list"
+        android:title="Scene List"
+        android:contentDescription="Scene list"
+        app:showAsAction="never" />
+
+    <!-- Advanced Audio Properties -->
+    <item
+        android:id="@+id/action_advanced_audio"
+        android:title="Advanced Audio Properties"
+        android:contentDescription="Advanced audio properties"
+        app:showAsAction="never" />
+
+    <!-- Stats -->
+    <item
+        android:id="@+id/action_stats"
+        android:title="View Stats"
+        android:contentDescription="View streaming stats"
+        app:showAsAction="never" />
+
+    <!-- Transition -->
+    <item
+        android:id="@+id/action_transition"
+        android:title="Transition"
+        android:contentDescription="Transition settings"
+        app:showAsAction="never" />
+
+</menu>

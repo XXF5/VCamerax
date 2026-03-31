@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll_obs"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary"
+    android:fillViewport="true"
+    android:clipToPadding="false"
+    android:paddingBottom="@dimen/padding_standard">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/padding_standard">
+
+        <!-- ══════════════════════════════════ -->
+        <!-- Stream Setup Card                   -->
+        <!-- ══════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_stream_setup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/background_card"
+            app:cardCornerRadius="@dimen/corner_radius_large"
+            app:cardElevation="@dimen/elevation_card"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_xl">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_stream_setup_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Stream Setup"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleMedium"
+                    android:textColor="@color/text_primary"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btn_edit_stream_setup" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_edit_stream_setup"
+                    style="@style/Widget.DualSpaceOBS.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit"
+                    android:textColor="@color/primary_400"
+                    android:minWidth="0dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:paddingHorizontal="@dimen/padding_small"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- Platform -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Platform"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.LabelMedium"
+                    android:textColor="@color/text_hint"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    app:layout_constraintTop_toBottomOf="@id/tv_stream_setup_title"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_stream_platform"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodyLarge"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    app:layout_constraintTop_toBottomOf="@id/tv_stream_setup_title"
+                    app:layout_constraintStart_toEndOf="@id/tv_stream_quality"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="YouTube" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_stream_quality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:paddingHorizontal="@dimen/padding_small"
+                    android:paddingVertical="@dimen/padding_tiny"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.Caption"
+                    android:textColor="@color/accent_400"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    app:layout_constraintTop_toBottomOf="@id/tv_stream_setup_title"
+                    app:layout_constraintEnd_toStartOf="@id/tv_stream_platform"
+                    tools:text="1080p" />
+
+                <!-- Server -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_stream_server"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodySmall"
+                    android:textColor="@color/text_hint"
+                    android:maxLines="1"
+                    android:ellipsize="middle"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/tv_stream_platform"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="rtmp://a.rtmp.youtube.com/live2"
+                    tools:visibility="visible" />
+
+                <!-- Stream Key Preview -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_stream_key_preview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodySmall"
+                    android:textColor="@color/text_hint"
+                    android:fontFamily="monospace"
+                    android:maxLines="1"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/tv_stream_server"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="xxxx••••••••xxxx"
+                    tools:visibility="visible" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ══════════════════════════════════ -->
+        <!-- Status Indicators                  -->
+        <!-- ══════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:cardBackgroundColor="@color/background_card"
+            app:cardCornerRadius="@dimen/corner_radius_medium"
+            app:cardElevation="@dimen/elevation_tiny"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toBottomOf="@id/card_stream_setup"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_medium"
+                android:gravity="center_vertical">
+
+                <!-- Streaming Status -->
+                <ImageView
+                    android:id="@+id/iv_status_streaming"
+                    android:layout_width="@dimen/icon_medium"
+                    android:layout_height="@dimen/icon_medium"
+                    android:src="@drawable/bg_status_streaming"
+                    android:contentDescription="Streaming status" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_status_streaming"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:text="@string/stream_offline"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.LabelLarge"
+                    android:textColor="@color/text_hint" />
+
+                <!-- Vertical Divider -->
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="24dp"
+                    android:layout_marginHorizontal="@dimen/margin_medium"
+                    android:background="@color/divider" />
+
+                <!-- Recording Status -->
+                <ImageView
+                    android:id="@+id/iv_status_recording"
+                    android:layout_width="@dimen/icon_medium"
+                    android:layout_height="@dimen/icon_medium"
+                    android:src="@drawable/bg_status_recording"
+                    android:contentDescription="Recording status" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_status_recording"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:text="@string/stream_offline"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.LabelLarge"
+                    android:textColor="@color/text_hint" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ══════════════════════════════════ -->
+        <!-- Quick Action Buttons               -->
+        <!-- ══════════════════════════════════ -->
+        <LinearLayout
+            android:id="@+id/layout_quick_actions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:orientation="horizontal"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/card_status"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Start / Stop Stream -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_start_stream"
+                style="@style/Widget.DualSpaceOBS.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height_large"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:background="@drawable/bg_button_accent"
+                android:text="@string/btn_start_stream"
+                android:textColor="@color/text_on_accent"
+                android:drawableStart="@drawable/ic_stream"
+                android:drawableTint="@color/text_on_accent" />
+
+            <!-- Start / Stop Recording -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_start_recording"
+                style="@style/Widget.DualSpaceOBS.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height_large"
+                android:layout_weight="1"
+                android:background="@drawable/bg_button_primary"
+                android:text="@string/btn_start_recording"
+                android:textColor="@color/text_on_primary"
+                android:drawableStart="@drawable/ic_record"
+                android:drawableTint="@color/text_on_primary" />
+
+        </LinearLayout>
+
+        <!-- Open OBS Studio Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_open_studio"
+            style="@style/Widget.DualSpaceOBS.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="Open OBS Studio"
+            android:textColor="@color/primary_300"
+            app:strokeColor="@color/primary_500"
+            app:icon="@drawable/ic_obs"
+            app:iconTint="@color/primary_300"
+            app:layout_constraintTop_toBottomOf="@id/layout_quick_actions"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- ══════════════════════════════════ -->
+        <!-- Stats Preview Card                 -->
+        <!-- ══════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_stats"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/background_card"
+            app:cardCornerRadius="@dimen/corner_radius_medium"
+            app:cardElevation="@dimen/elevation_tiny"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toBottomOf="@id/btn_open_studio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_medium"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_stat_bitrate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleMedium"
+                        android:textColor="@color/text_primary"
+                        tools:text="4500 kbps" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bitrate"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.Caption"
+                        android:textColor="@color/text_hint" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="32dp"
+                    android:background="@color/divider" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_stat_fps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleMedium"
+                        android:textColor="@color/text_primary"
+                        tools:text="30.0 FPS" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FPS"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.Caption"
+                        android:textColor="@color/text_hint" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="32dp"
+                    android:background="@color/divider" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_stat_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleMedium"
+                        android:textColor="@color/text_primary"
+                        tools:text="00:15:32" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Duration"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.Caption"
+                        android:textColor="@color/text_hint" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ══════════════════════════════════ -->
+        <!-- Recent Recordings                  -->
+        <!-- ══════════════════════════════════ -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_recent_recordings_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Recent Recordings"
+            android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleSmall"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="@dimen/margin_xl"
+            app:layout_constraintTop_toBottomOf="@id/card_stats"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_see_all_recordings" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_see_all_recordings"
+            style="@style/Widget.DualSpaceOBS.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="See All"
+            android:textColor="@color/primary_400"
+            android:minWidth="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:layout_marginTop="@dimen/margin_xl"
+            app:layout_constraintTop_toBottomOf="@id/card_stats"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_recent_recordings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/margin_small"
+            android:paddingEnd="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/tv_recent_recordings_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:listitem="@layout/item_recording_list" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_no_recordings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No recordings yet"
+            android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodyMedium"
+            android:textColor="@color/text_hint"
+            android:paddingVertical="@dimen/padding_xl"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tv_recent_recordings_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

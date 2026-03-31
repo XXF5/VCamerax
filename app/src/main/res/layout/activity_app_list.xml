@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_app_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.applist.AppListActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_primary">
+
+        <!-- Toolbar -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar_app_list"
+            style="@style/Widget.DualSpaceOBS.Toolbar"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/toolbar_height"
+            app:title="@string/nav_apps"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- SearchView -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_search"
+            style="@style/Widget.DualSpaceOBS.TextInputLayout.Filled"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_standard"
+            android:layout_marginTop="@dimen/margin_small"
+            android:hint="@string/search_apps"
+            app:startIconDrawable="@drawable/ic_search"
+            app:startIconTint="@color/text_hint"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/text_hint"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_app_list"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/text_primary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- TabLayout -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout_apps"
+            style="@style/TabLayout.Fixed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            app:layout_constraintTop_toBottomOf="@id/til_search"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_all_apps" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_cloned_apps" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_system_apps" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <!-- ViewPager2 for app list fragments -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager_apps"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/tab_layout_apps"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Empty state (hidden by default) -->
+        <LinearLayout
+            android:id="@+id/layout_empty_state"
+            style="@style/EmptyState"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tab_layout_apps"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                style="@style/EmptyState.Icon"
+                android:src="@drawable/ic_package" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/EmptyState.Title"
+                android:text="@string/no_cloned_apps" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/EmptyState.Description"
+                android:text="@string/no_cloned_apps_desc" />
+
+        </LinearLayout>
+
+        <!-- FAB for refresh -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_refresh"
+            style="@style/Widget.DualSpaceOBS.FloatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/ic_refresh"
+            android:contentDescription="@string/btn_refresh"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============================== -->
+    <!-- Base Application Theme         -->
+    <!-- ============================== -->
+    <style name="Theme.DualSpaceOBS" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/primary_600</item>
+        <item name="colorOnPrimary">@color/text_on_primary</item>
+        <item name="colorPrimaryContainer">@color/m3_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/m3_on_primary_container</item>
+
+        <!-- Secondary Colors -->
+        <item name="colorSecondary">@color/primary_400</item>
+        <item name="colorOnSecondary">@color/text_on_primary</item>
+        <item name="colorSecondaryContainer">@color/m3_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/m3_on_secondary_container</item>
+
+        <!-- Tertiary Colors -->
+        <item name="colorTertiary">@color/accent_500</item>
+        <item name="colorOnTertiary">@color/text_on_accent</item>
+        <item name="colorTertiaryContainer">@color/m3_tertiary_container</item>
+
+        <!-- Error Colors -->
+        <item name="colorError">@color/status_error_red</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorErrorContainer">@color/m3_error_container</item>
+        <item name="colorOnErrorContainer">@color/m3_on_error_container</item>
+
+        <!-- Surface & Background -->
+        <item name="colorSurface">@color/background_surface</item>
+        <item name="colorOnSurface">@color/m3_on_surface</item>
+        <item name="colorSurfaceVariant">@color/m3_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/m3_on_surface_variant</item>
+        <item name="colorSurfaceContainerLowest">@color/background_primary</item>
+        <item name="colorSurfaceContainerLow">@color/background_secondary</item>
+        <item name="colorSurfaceContainer">@color/background_surface</item>
+        <item name="colorSurfaceContainerHigh">@color/background_elevated</item>
+        <item name="colorSurfaceContainerHighest">@color/background_dialog</item>
+        <item name="backgroundColor">@color/background_primary</item>
+        <item name="android:windowBackground">@color/background_primary</item>
+
+        <!-- Outline -->
+        <item name="colorOutline">@color/m3_outline</item>
+        <item name="colorOutlineVariant">@color/m3_outline_variant</item>
+
+        <!-- Inverse -->
+        <item name="colorInverseSurface">@color/m3_inverse_surface</item>
+        <item name="colorInverseOnSurface">@color/m3_inverse_on_surface</item>
+        <item name="colorInversePrimary">@color/primary_800</item>
+
+        <!-- Status Bar -->
+        <item name="android:statusBarColor">@color/background_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="statusBarColor">@color/background_primary</item>
+
+        <!-- Navigation Bar -->
+        <item name="android:navigationBarColor">@color/background_surface</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="navigationBarColor">@color/background_surface</item>
+
+        <!-- Text Styles -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="android:textColorLink">@color/text_link</item>
+
+        <!-- Material Components Defaults -->
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.DualSpaceOBS.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.DualSpaceOBS.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.DualSpaceOBS.HeadlineSmall</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.DualSpaceOBS.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.DualSpaceOBS.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.DualSpaceOBS.TitleSmall</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.DualSpaceOBS.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.DualSpaceOBS.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.DualSpaceOBS.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.DualSpaceOBS.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.DualSpaceOBS.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.DualSpaceOBS.LabelSmall</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.DualSpaceOBS.Caption</item>
+
+        <!-- Shape / Corner Radius -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.DualSpaceOBS.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.DualSpaceOBS.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.DualSpaceOBS.LargeComponent</item>
+
+        <!-- Card Style -->
+        <item name="cardViewStyle">@style/Widget.DualSpaceOBS.CardView</item>
+        <item name="materialCardViewStyle">@style/Widget.DualSpaceOBS.MaterialCard</item>
+
+        <!-- Button Styles -->
+        <item name="materialButtonStyle">@style/Widget.DualSpaceOBS.Button</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.DualSpaceOBS.Button.Outlined</item>
+        <item name="materialButtonTonalStyle">@style/Widget.DualSpaceOBS.Button.Tonal</item>
+        <item name="materialIconButtonStyle">@style/Widget.DualSpaceOBS.Button.Icon</item>
+        <item name="materialIconButtonFilledStyle">@style/Widget.DualSpaceOBS.Button.Icon.Filled</item>
+        <item name="materialIconButtonOutlinedStyle">@style/Widget.DualSpaceOBS.Button.Icon.Outlined</item>
+        <item name="floatingActionButtonStyle">@style/Widget.DualSpaceOBS.FloatingActionButton</item>
+
+        <!-- Chip Styles -->
+        <item name="chipStyle">@style/Widget.DualSpaceOBS.Chip</item>
+        <item name="chipStandaloneStyle">@style/Widget.DualSpaceOBS.Chip.Standalone</item>
+
+        <!-- Dialog Styles -->
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.DualSpaceOBS.AlertDialog</item>
+        <item name="dialogCornerRadius">@dimen/corner_radius_large</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.DualSpaceOBS.BottomSheetDialog</item>
+
+        <!-- Snackbar -->
+        <item name="snackbarStyle">@style/Widget.DualSpaceOBS.Snackbar</item>
+        <item name="snackbarTextViewStyle">@style/Widget.DualSpaceOBS.Snackbar.TextView</item>
+
+        <!-- Switch -->
+        <item name="switchStyle">@style/Widget.DualSpaceOBS.Switch</item>
+
+        <!-- TextInput -->
+        <item name="textInputStyle">@style/Widget.DualSpaceOBS.TextInputLayout</item>
+
+        <!-- TabLayout -->
+        <item name="tabStyle">@style/Widget.DualSpaceOBS.TabLayout</item>
+        <item name="tabSecondaryStyle">@style/Widget.DualSpaceOBS.TabLayout.Secondary</item>
+
+        <!-- Navigation Bar -->
+        <item name="bottomNavigationStyle">@style/Widget.DualSpaceOBS.BottomNavigationView</item>
+
+        <!-- Toolbar -->
+        <item name="toolbarStyle">@style/Widget.DualSpaceOBS.Toolbar</item>
+
+        <!-- Progress Indicator -->
+        <item name="linearProgressIndicatorStyle">@style/Widget.DualSpaceOBS.LinearProgressIndicator</item>
+        <item name="circularProgressIndicatorStyle">@style/Widget.DualSpaceOBS.CircularProgressIndicator</item>
+
+        <!-- Ripple -->
+        <item name="android:colorControlHighlight">@color/ripple_color</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Splash Theme                   -->
+    <!-- ============================== -->
+    <style name="Theme.DualSpaceOBS.Splash" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowBackground">@color/background_splash</item>
+        <item name="android:statusBarColor">@color/background_splash</item>
+        <item name="android:navigationBarColor">@color/background_splash</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowSplashScreenBackground">@color/background_splash</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.DualSpaceOBS</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Floating Window Theme          -->
+    <!-- ============================== -->
+    <style name="Theme.DualSpaceOBS.Floating" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Text Appearances               -->
+    <!-- ============================== -->
+    <style name="TextAppearance.DualSpaceOBS.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.TitleSmall" parent="TextAppearance.Material3.TitleSmall">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/text_hint</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_hint</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.Caption.White" parent="TextAppearance.DualSpaceOBS.Caption">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.LiveIndicator" parent="TextAppearance.DualSpaceOBS.LabelMedium">
+        <item name="android:textColor">@color/status_live_red</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.RecIndicator" parent="TextAppearance.DualSpaceOBS.LabelMedium">
+        <item name="android:textColor">@color/status_recording_red</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.DualSpaceOBS.Overlay" parent="TextAppearance.DualSpaceOBS.BodySmall">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Shape Appearances              -->
+    <!-- ============================== -->
+    <style name="ShapeAppearance.DualSpaceOBS.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/corner_radius_small</item>
+    </style>
+
+    <style name="ShapeAppearance.DualSpaceOBS.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/corner_radius_medium</item>
+    </style>
+
+    <style name="ShapeAppearance.DualSpaceOBS.LargeComponent" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/corner_radius_large</item>
+    </style>
+
+    <style name="ShapeAppearance.DualSpaceOBS.ExtraLargeComponent" parent="ShapeAppearance.Material3.ExtraLargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/corner_radius_extra_large</item>
+    </style>
+
+    <style name="ShapeAppearance.DualSpaceOBS.FloatingButton" parent="ShapeAppearance.Material3.FloatingActionButton">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearance.DualSpaceOBS.Bubble" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Widget Styles: Buttons         -->
+    <!-- ============================== -->
+    <style name="Widget.DualSpaceOBS.Button" parent="Widget.Material3.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">@dimen/corner_radius_medium</item>
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.LabelLarge</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:paddingHorizontal">@dimen/padding_horizontal_button</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">@dimen/corner_radius_medium</item>
+        <item name="strokeColor">@color/m3_outline</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.LabelLarge</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.Button.Tonal" parent="Widget.Material3.Button.TonalButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">@dimen/corner_radius_medium</item>
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.LabelLarge</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.LabelLarge</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.Button.Icon" parent="Widget.Material3.Button.IconButton">
+        <item name="iconTint">@color/text_secondary</item>
+        <item name="android:minWidth">@dimen/icon_button_size</item>
+        <item name="android:minHeight">@dimen/icon_button_size</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.Button.Icon.Filled" parent="Widget.Material3.Button.IconButton.Filled">
+        <item name="iconTint">@color/text_on_primary</item>
+        <item name="android:minWidth">@dimen/icon_button_size</item>
+        <item name="android:minHeight">@dimen/icon_button_size</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.Button.Icon.Outlined" parent="Widget.Material3.Button.IconButton.Outlined">
+        <item name="iconTint">@color/text_secondary</item>
+        <item name="strokeColor">@color/m3_outline</item>
+        <item name="android:minWidth">@dimen/icon_button_size</item>
+        <item name="android:minHeight">@dimen/icon_button_size</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.Button.Record" parent="Widget.Material3.Button.IconButton.Filled">
+        <item name="backgroundTint">@color/status_recording_red</item>
+        <item name="iconTint">@color/white</item>
+        <item name="android:minWidth">@dimen/control_button_size</item>
+        <item name="android:minHeight">@dimen/control_button_size</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.Button.Stream" parent="Widget.Material3.Button.IconButton.Filled">
+        <item name="backgroundTint">@color/status_streaming_green</item>
+        <item name="iconTint">@color/white</item>
+        <item name="android:minWidth">@dimen/control_button_size</item>
+        <item name="android:minHeight">@dimen/control_button_size</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.FloatingActionButton" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="backgroundTint">@color/accent_600</item>
+        <item name="tint">@color/white</item>
+        <item name="fabCustomSize">@dimen/fab_size</item>
+        <item name="maxImageSize">@dimen/fab_icon_size</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.DualSpaceOBS.FloatingButton</item>
+        <item name="elevation">@dimen/elevation_fab</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.FloatingActionButton.Small" parent="Widget.DualSpaceOBS.FloatingActionButton">
+        <item name="fabCustomSize">@dimen/fab_size_small</item>
+        <item name="maxImageSize">@dimen/fab_icon_size_small</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Widget Styles: Cards           -->
+    <!-- ============================== -->
+    <style name="Widget.DualSpaceOBS.MaterialCard" parent="Widget.Material3.Card.Elevated">
+        <item name="cardBackgroundColor">@color/background_card</item>
+        <item name="cardCornerRadius">@dimen/corner_radius_medium</item>
+        <item name="cardElevation">@dimen/elevation_card</item>
+        <item name="strokeColor">@android:color/transparent</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.MaterialCard.Outlined" parent="Widget.Material3.Card.Outlined">
+        <item name="cardBackgroundColor">@color/background_card</item>
+        <item name="cardCornerRadius">@dimen/corner_radius_medium</item>
+        <item name="strokeColor">@color/m3_outline</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.MaterialCard.Filled" parent="Widget.Material3.Card.Filled">
+        <item name="cardBackgroundColor">@color/m3_surface_variant</item>
+        <item name="cardCornerRadius">@dimen/corner_radius_medium</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.CardView" parent="Widget.Material3.CardView">
+        <item name="cardBackgroundColor">@color/background_card</item>
+        <item name="cardCornerRadius">@dimen/corner_radius_medium</item>
+        <item name="cardElevation">@dimen/elevation_card</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Widget Styles: Chips           -->
+    <!-- ============================== -->
+    <style name="Widget.DualSpaceOBS.Chip" parent="Widget.Material3.Chip.Suggestion">
+        <item name="chipBackgroundColor">@color/chip_background</item>
+        <item name="chipStrokeColor">@color/chip_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipCornerRadius">@dimen/corner_radius_small</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="chipIconTint">@color/text_secondary</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.Chip.Standalone" parent="Widget.DualSpaceOBS.Chip">
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.Chip.Filter" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_background</item>
+        <item name="chipStrokeColor">@color/chip_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipCornerRadius">@dimen/corner_radius_small</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.Chip.Input" parent="Widget.Material3.Chip.Input">
+        <item name="chipBackgroundColor">@color/chip_background</item>
+        <item name="chipStrokeColor">@color/chip_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Widget Styles: Dialogs         -->
+    <!-- ============================== -->
+    <style name="ThemeOverlay.DualSpaceOBS.AlertDialog" parent="ThemeOverlay.Material3.AlertDialog">
+        <item name="colorSurface">@color/background_dialog</item>
+        <item name="android:windowBackground">@color/background_dialog</item>
+        <item name="android:colorBackground">@color/background_dialog</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/Widget.DualSpaceOBS.AlertDialog.Title</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/Widget.DualSpaceOBS.AlertDialog.Body</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.DualSpaceOBS.AlertDialog.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.DualSpaceOBS.AlertDialog.Button.Text</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.AlertDialog.Title" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.TitleLarge</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.AlertDialog.Body" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.BodyMedium</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.AlertDialog.Button" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/primary_400</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.AlertDialog.Button.Text" parent="Widget.DualSpaceOBS.AlertDialog.Button">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="ThemeOverlay.DualSpaceOBS.BottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.DualSpaceOBS.BottomSheet</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/background_bottom_sheet</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.BottomSheet" parent="Widget.Material3.BottomSheet">
+        <item name="shapeAppearance">@style/ShapeAppearance.DualSpaceOBS.LargeComponent</item>
+        <item name="backgroundTint">@color/background_bottom_sheet</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Widget Styles: Snackbar        -->
+    <!-- ============================== -->
+    <style name="Widget.DualSpaceOBS.Snackbar" parent="Widget.Material3.Snackbar">
+        <item name="android:background">@color/snackbar_background</item>
+        <item name="animationMode">slide</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.Snackbar.TextView" parent="Widget.Material3.Snackbar.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.BodyMedium</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Widget Styles: Switch          -->
+    <!-- ============================== -->
+    <style name="Widget.DualSpaceOBS.Switch" parent="Widget.Material3.CompoundButton.Switch">
+        <item name="thumbTint">@color/switch_thumb</item>
+        <item name="trackTint">@color/switch_track</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Widget Styles: TextInput       -->
+    <!-- ============================== -->
+    <style name="Widget.DualSpaceOBS.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/border_focus</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/corner_radius_small</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/corner_radius_small</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/corner_radius_small</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/corner_radius_small</item>
+        <item name="hintTextColor">@color/primary_400</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="counterTextColor">@color/text_hint</item>
+        <item name="helperTextTextColor">@color/text_hint</item>
+        <item name="errorTextColor">@color/text_error</item>
+        <item name="errorIconTint">@color/text_error</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.TextInputLayout.Filled" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/background_input</item>
+        <item name="boxStrokeColor">@android:color/transparent</item>
+        <item name="boxCornerRadiusTopStart">@dimen/corner_radius_small</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/corner_radius_small</item>
+        <item name="boxCornerRadiusBottomStart">0dp</item>
+        <item name="boxCornerRadiusBottomEnd">0dp</item>
+        <item name="hintTextColor">@color/primary_400</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Widget Styles: TabLayout       -->
+    <!-- ============================== -->
+    <style name="Widget.DualSpaceOBS.TabLayout" parent="Widget.Material3.TabLayout">
+        <item name="tabIndicatorColor">@color/accent_500</item>
+        <item name="tabIndicatorHeight">3dp</item>
+        <item name="tabSelectedTextColor">@color/accent_400</item>
+        <item name="tabTextColor">@color/text_hint</item>
+        <item name="tabTextAppearance">@style/TextAppearance.DualSpaceOBS.LabelLarge</item>
+        <item name="tabRippleColor">@color/ripple_color</item>
+        <item name="tabBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.TabLayout.Secondary" parent="Widget.DualSpaceOBS.TabLayout">
+        <item name="tabIndicatorColor">@color/primary_400</item>
+        <item name="tabSelectedTextColor">@color/primary_400</item>
+        <item name="tabIndicatorHeight">2dp</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Widget Styles: Bottom Nav      -->
+    <!-- ============================== -->
+    <style name="Widget.DualSpaceOBS.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemIconTint">@color/nav_bar_selector</item>
+        <item name="itemTextColor">@color/nav_bar_selector</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.DualSpaceOBS.BottomNav.ActiveIndicator</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="backgroundTint">@color/background_surface</item>
+        <item name="elevation">@dimen/elevation_bottom_nav</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.BottomNav.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/primary_800</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.DualSpaceOBS.MediumComponent</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Widget Styles: Toolbar         -->
+    <!-- ============================== -->
+    <style name="Widget.DualSpaceOBS.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">@style/TextAppearance.DualSpaceOBS.TitleLarge</item>
+        <item name="titleTextColor">@color/text_primary</item>
+        <item name="subtitleTextAppearance">@style/TextAppearance.DualSpaceOBS.BodySmall</item>
+        <item name="subtitleTextColor">@color/text_secondary</item>
+        <item name="navigationIconTint">@color/text_secondary</item>
+        <item name="android:background">@color/background_primary</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.Toolbar.Surface" parent="Widget.DualSpaceOBS.Toolbar">
+        <item name="android:background">@color/background_surface</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Widget Styles: Progress        -->
+    <!-- ============================== -->
+    <style name="Widget.DualSpaceOBS.LinearProgressIndicator" parent="Widget.Material3.LinearProgressIndicator">
+        <item name="trackColor">@color/progress_background</item>
+        <item name="indicatorColor">@color/progress_indeterminate</item>
+        <item name="minHeight">4dp</item>
+    </style>
+
+    <style name="Widget.DualSpaceOBS.CircularProgressIndicator" parent="Widget.Material3.CircularProgressIndicator">
+        <item name="indicatorColor">@color/primary_400</item>
+        <item name="trackColor">@color/progress_background</item>
+    </style>
+</resources>

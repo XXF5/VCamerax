@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_apps"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary">
+
+    <!-- ══════════════════════════════════ -->
+    <!-- Search Bar                         -->
+    <!-- ══════════════════════════════════ -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_search"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_standard"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:hint="@string/search_apps"
+        android:visibility="gone"
+        app:boxCornerRadiusBottomEnd="@dimen/corner_radius_large"
+        app:boxCornerRadiusBottomStart="@dimen/corner_radius_large"
+        app:boxCornerRadiusTopEnd="@dimen/corner_radius_large"
+        app:boxCornerRadiusTopStart="@dimen/corner_radius_large"
+        app:boxStrokeColor="@color/border"
+        app:boxBackgroundColor="@color/background_input"
+        app:hintTextColor="@color/primary_400"
+        app:startIconDrawable="@drawable/ic_search"
+        app:startIconTint="@color/icon_tint"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- ══════════════════════════════════ -->
+    <!-- App Count / Sort Info              -->
+    <!-- ══════════════════════════════════ -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_app_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_standard"
+        android:layout_marginTop="@dimen/margin_small"
+        android:textAppearance="@style/TextAppearance.DualSpaceOBS.LabelMedium"
+        android:textColor="@color/text_hint"
+        app:layout_constraintTop_toBottomOf="@id/layout_search"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="24 apps" />
+
+    <!-- ══════════════════════════════════ -->
+    <!-- App List RecyclerView               -->
+    <!-- ══════════════════════════════════ -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_app_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:clipToPadding="false"
+        android:paddingHorizontal="@dimen/padding_micro"
+        android:paddingVertical="@dimen/padding_small"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tv_app_count"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/item_app_list" />
+
+    <!-- ══════════════════════════════════ -->
+    <!-- Empty State                        -->
+    <!-- ══════════════════════════════════ -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_empty_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/tv_app_count"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_empty_icon"
+            android:layout_width="@dimen/empty_state_icon_size"
+            android:layout_height="@dimen/empty_state_icon_size"
+            android:src="@drawable/ic_apps"
+            android:tint="@color/text_disabled"
+            android:contentDescription="@string/empty_state_title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_empty_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="@string/empty_state_title"
+            android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleMedium"
+            android:textColor="@color/text_secondary"
+            app:layout_constraintTop_toBottomOf="@id/iv_empty_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_empty_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/no_cloned_apps_desc"
+            android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodyMedium"
+            android:textColor="@color/text_hint"
+            android:maxLines="3"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tv_empty_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ══════════════════════════════════ -->
+    <!-- FAB – Clone                        -->
+    <!-- ══════════════════════════════════ -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_clone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_clone"
+        android:contentDescription="@string/btn_clone"
+        app:tint="@color/text_on_accent"
+        app:backgroundTint="@color/accent_600"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

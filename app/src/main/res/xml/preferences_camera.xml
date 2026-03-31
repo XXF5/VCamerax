@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- ══════════════════════════════════ -->
+    <!-- Camera Selection                   -->
+    <!-- ══════════════════════════════════ -->
+    <PreferenceCategory
+        android:title="Camera Selection"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            android:key="pref_camera_source"
+            android:title="Camera Source"
+            android:summary="Select which camera to use as input"
+            android:entries="@array/camera_source_entries"
+            android:entryValues="@array/camera_source_values"
+            android:defaultValue="back"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            android:key="pref_use_front_camera"
+            android:title="@string/settings_use_front_camera"
+            android:summary="Use the front-facing camera by default"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <!-- ══════════════════════════════════ -->
+    <!-- Camera Resolution                  -->
+    <!-- ══════════════════════════════════ -->
+    <PreferenceCategory
+        android:title="@string/settings_camera_resolution"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            android:key="pref_camera_resolution"
+            android:title="Camera Resolution"
+            android:summary="Native camera capture resolution"
+            android:entries="@array/camera_resolution_entries"
+            android:entryValues="@array/camera_resolution_values"
+            android:defaultValue="1920x1080"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="pref_camera_framerate"
+            android:title="@string/camera_fps_label"
+            android:summary="Camera capture frame rate"
+            android:entries="@array/fps_entries"
+            android:entryValues="@array/fps_values"
+            android:defaultValue="30"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <!-- ══════════════════════════════════ -->
+    <!-- Virtual Camera                     -->
+    <!-- ══════════════════════════════════ -->
+    <PreferenceCategory
+        android:title="Virtual Camera"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat
+            android:key="pref_virtual_camera_enabled"
+            android:title="@string/settings_virtual_camera_enabled"
+            android:summary="@string/settings_virtual_camera_enabled_desc"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="pref_virtual_camera_resolution"
+            android:title="Virtual Camera Resolution"
+            android:summary="Resolution exposed to other apps via virtual camera"
+            android:entries="@array/camera_resolution_entries"
+            android:entryValues="@array/camera_resolution_values"
+            android:defaultValue="1280x720"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <!-- ══════════════════════════════════ -->
+    <!-- Camera Behavior                    -->
+    <!-- ══════════════════════════════════ -->
+    <PreferenceCategory
+        android:title="Camera Behavior"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat
+            android:key="pref_camera_auto_focus"
+            android:title="Auto Focus"
+            android:summary="Enable continuous auto-focus"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="pref_camera_stabilization"
+            android:title="Image Stabilization"
+            android:summary="Enable optical / electronic stabilization"
+            android:defaultValue="true" />
+
+        <ListPreference
+            android:key="pref_camera_exposure_compensation"
+            android:title="Exposure Compensation"
+            android:summary="Manual exposure offset"
+            android:entries="@array/exposure_entries"
+            android:entryValues="@array/exposure_values"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

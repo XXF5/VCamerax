@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============================== -->
+    <!-- RecyclerView Item Styles       -->
+    <!-- ============================== -->
+    <style name="RecyclerViewItem" parent="android:Widget">
+        <item name="android:background">@color/background_card</item>
+        <item name="android:padding">@dimen/padding_medium</item>
+        <item name="android:elevation">@dimen/elevation_card</item>
+    </style>
+
+    <style name="RecyclerViewItem.App" parent="RecyclerViewItem">
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="RecyclerViewItem.Source" parent="RecyclerViewItem">
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:minHeight">@dimen/item_source_height</item>
+    </style>
+
+    <style name="RecyclerViewItem.Scene" parent="RecyclerViewItem">
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:paddingHorizontal">@dimen/padding_small</item>
+        <item name="android:paddingVertical">@dimen/padding_tiny</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- App Item Styles                -->
+    <!-- ============================== -->
+    <style name="AppItemIcon">
+        <item name="android:layout_width">@dimen/app_icon_size</item>
+        <item name="android:layout_height">@dimen/app_icon_size</item>
+        <item name="android:contentDescription">@string/content_desc_app_icon</item>
+    </style>
+
+    <style name="AppItemName">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.TitleMedium</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="AppItemPackageName">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.BodySmall</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:textColor">@color/text_hint</item>
+    </style>
+
+    <style name="AppItemSize">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.Caption</item>
+        <item name="android:textColor">@color/text_hint</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Floating Button Styles         -->
+    <!-- ============================== -->
+    <style name="FloatingButton" parent="android:Widget">
+        <item name="android:elevation">@dimen/elevation_fab</item>
+        <item name="android:stateListAnimator">@animator/mtrl_extended_fab_state_list_animator</item>
+    </style>
+
+    <style name="FloatingButton.Control" parent="FloatingButton">
+        <item name="android:layout_width">@dimen/control_button_size</item>
+        <item name="android:layout_height">@dimen/control_button_size</item>
+        <item name="android:background">@drawable/bg_control_button</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:padding">@dimen/padding_medium</item>
+    </style>
+
+    <style name="FloatingButton.Bubble" parent="FloatingButton">
+        <item name="android:layout_width">@dimen/floating_bubble_size</item>
+        <item name="android:layout_height">@dimen/floating_bubble_size</item>
+        <item name="android:background">@drawable/bg_floating_bubble</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:contentDescription">@string/content_desc_floating_bubble</item>
+    </style>
+
+    <style name="FloatingButton.Expanded" parent="FloatingButton">
+        <item name="android:layout_width">@dimen/floating_button_expanded_size</item>
+        <item name="android:layout_height">@dimen/floating_button_expanded_size</item>
+        <item name="android:background">@drawable/bg_floating_button_expanded</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:padding">@dimen/padding_small</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Stats Card Styles              -->
+    <!-- ============================== -->
+    <style name="StatsCard" parent="android:Widget">
+        <item name="android:background">@drawable/bg_stats_card</item>
+        <item name="android:padding">@dimen/padding_small</item>
+        <item name="android:elevation">@dimen/elevation_small</item>
+    </style>
+
+    <style name="StatsCard.Label">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.Caption</item>
+        <item name="android:textColor">@color/text_hint</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="StatsCard.Value">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.TitleMedium</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="StatsOverlay">
+        <item name="android:background">@drawable/bg_stats_overlay</item>
+        <item name="android:padding">@dimen/padding_stats_overlay</item>
+    </style>
+
+    <style name="StatsOverlay.Text">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.Overlay</item>
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Section Header Styles          -->
+    <!-- ============================== -->
+    <style name="SectionHeader">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.LabelLarge</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:paddingStart">@dimen/padding_medium</item>
+        <item name="android:paddingTop">@dimen/padding_medium</item>
+        <item name="android:paddingEnd">@dimen/padding_medium</item>
+        <item name="android:paddingBottom">@dimen/padding_small</item>
+    </style>
+
+    <style name="SectionHeader.Title">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.TitleMedium</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="SectionHeader.Subtitle">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.BodySmall</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
+    <style name="SectionDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/divider</item>
+        <item name="android:layout_marginStart">@dimen/padding_medium</item>
+        <item name="android:layout_marginEnd">@dimen/padding_medium</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Switch / Toggle Styles         -->
+    <!-- ============================== -->
+    <style name="SettingSwitch">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/padding_medium</item>
+        <item name="android:paddingTop">@dimen/padding_switch_vertical</item>
+        <item name="android:paddingEnd">@dimen/padding_medium</item>
+        <item name="android:paddingBottom">@dimen/padding_switch_vertical</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="SettingSwitch.Title">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.BodyLarge</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="SettingSwitch.Summary">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.BodySmall</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:layout_marginTop">@dimen/margin_tiny</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- ProgressBar Styles             -->
+    <!-- ============================== -->
+    <style name="ProgressBar.Horizontal" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/progress_horizontal</item>
+        <item name="android:minHeight">4dp</item>
+        <item name="android:maxHeight">8dp</item>
+    </style>
+
+    <style name="ProgressBar.Indeterminate" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:indeterminateTint">@color/primary_400</item>
+    </style>
+
+    <style name="ProgressBar.Small" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:minWidth">@dimen/progress_small_size</item>
+        <item name="android:minHeight">@dimen/progress_small_size</item>
+        <item name="android:indeterminateTint">@color/primary_400</item>
+    </style>
+
+    <style name="ProgressBar.Recording">
+        <item name="android:indeterminateTint">@color/status_recording_red</item>
+    </style>
+
+    <style name="ProgressBar.Streaming">
+        <item name="android:indeterminateTint">@color/status_streaming_green</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- TabLayout Extended Styles      -->
+    <!-- ============================== -->
+    <style name="TabLayout.AppTabs" parent="Widget.DualSpaceOBS.TabLayout">
+        <item name="tabMode">scrollable</item>
+        <item name="tabGravity">start</item>
+        <item name="tabContentStart">@dimen/padding_medium</item>
+        <item name="tabPaddingStart">@dimen/padding_small</item>
+        <item name="tabPaddingEnd">@dimen/padding_small</item>
+    </style>
+
+    <style name="TabLayout.Fixed" parent="Widget.DualSpaceOBS.TabLayout">
+        <item name="tabMode">fixed</item>
+        <item name="tabGravity">fill</item>
+    </style>
+
+    <style name="TabLayout.CameraSource" parent="Widget.DualSpaceOBS.TabLayout">
+        <item name="tabMode">fixed</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabIndicatorColor">@color/accent_500</item>
+        <item name="tabSelectedTextColor">@color/accent_400</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Empty State Style              -->
+    <!-- ============================== -->
+    <style name="EmptyState">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:padding">@dimen/padding_large</item>
+    </style>
+
+    <style name="EmptyState.Icon">
+        <item name="android:layout_width">@dimen/empty_state_icon_size</item>
+        <item name="android:layout_height">@dimen/empty_state_icon_size</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:tint">@color/text_hint</item>
+    </style>
+
+    <style name="EmptyState.Title">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.TitleMedium</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+    </style>
+
+    <style name="EmptyState.Description">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.BodyMedium</item>
+        <item name="android:textColor">@color/text_hint</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Live / Rec Indicator Styles    -->
+    <!-- ============================== -->
+    <style name="LiveIndicator">
+        <item name="android:background">@drawable/bg_live_indicator</item>
+        <item name="android:paddingStart">@dimen/padding_live_badge</item>
+        <item name="android:paddingTop">@dimen/padding_live_badge_vertical</item>
+        <item name="android:paddingEnd">@dimen/padding_live_badge</item>
+        <item name="android:paddingBottom">@dimen/padding_live_badge_vertical</item>
+    </style>
+
+    <style name="LiveIndicator.Text">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.LiveIndicator</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.08</item>
+    </style>
+
+    <style name="RecIndicator">
+        <item name="android:background">@drawable/bg_rec_indicator</item>
+        <item name="android:paddingStart">@dimen/padding_live_badge</item>
+        <item name="android:paddingTop">@dimen/padding_live_badge_vertical</item>
+        <item name="android:paddingEnd">@dimen/padding_live_badge</item>
+        <item name="android:paddingBottom">@dimen/padding_live_badge_vertical</item>
+    </style>
+
+    <style name="RecIndicator.Text">
+        <item name="android:textAppearance">@style/TextAppearance.DualSpaceOBS.RecIndicator</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.08</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Drag Handle Style              -->
+    <!-- ============================== -->
+    <style name="DragHandle">
+        <item name="android:layout_width">@dimen/drag_handle_width</item>
+        <item name="android:layout_height">@dimen/drag_handle_height</item>
+        <item name="android:src">@drawable/ic_drag_handle</item>
+        <item name="android:contentDescription">@string/content_desc_drag_handle</item>
+        <item name="android:tint">@color/text_disabled</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Volume Slider Style            -->
+    <!-- ============================== -->
+    <style name="VolumeSlider">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:max">100</item>
+        <item name="android:progressTint">@color/primary_400</item>
+        <item name="android:progressBackgroundTint">@color/progress_background</item>
+        <item name="android:thumbTint">@color/primary_300</item>
+        <item name="android:contentDescription">@string/content_desc_volume_slider</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Step Indicator Style           -->
+    <!-- ============================== -->
+    <style name="StepIndicator">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="StepIndicator.Dot">
+        <item name="android:layout_width">@dimen/step_dot_size</item>
+        <item name="android:layout_height">@dimen/step_dot_size</item>
+    </style>
+
+    <style name="StepIndicator.Dot.Active">
+        <item name="android:background">@drawable/bg_step_dot_active</item>
+    </style>
+
+    <style name="StepIndicator.Dot.Inactive">
+        <item name="android:background">@drawable/bg_step_dot_inactive</item>
+    </style>
+
+    <style name="StepIndicator.Dot.Completed">
+        <item name="android:background">@drawable/bg_step_dot_completed</item>
+    </style>
+
+    <!-- ============================== -->
+    <!-- Settings Item Style            -->
+    <!-- ============================== -->
+    <style name="SettingsItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/padding_medium</item>
+        <item name="android:paddingTop">@dimen/padding_switch_vertical</item>
+        <item name="android:paddingEnd">@dimen/padding_medium</item>
+        <item name="android:paddingBottom">@dimen/padding_switch_vertical</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Allow cleartext (HTTP) traffic for RTMP streaming servers -->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <!-- Trust system-preinstalled CAs -->
+            <certificates src="system" />
+            <!-- Optionally trust user-added CAs -->
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+
+    <!-- Domain-specific configuration for known streaming platforms -->
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- YouTube ingest -->
+        <domain includeSubdomains="true">a.rtmp.youtube.com</domain>
+        <domain includeSubdomains="true">rtmp.youtube.com</domain>
+
+        <!-- Twitch ingest -->
+        <domain includeSubdomains="true">ingest.contribute.live-video.net</domain>
+        <domain includeSubdomains="true">go-contribute.twitch.tv</domain>
+
+        <!-- Facebook Live -->
+        <domain includeSubdomains="true">live-api-s.facebook.com</domain>
+        <domain includeSubdomains="true">rtmp.facebook.com</domain>
+
+        <!-- TikTok -->
+        <domain includeSubdomains="true">lf-cdn-tos.bytecdntp.com</domain>
+        <domain includeSubdomains="true">pull-flv-xxx.livepush.tiktokcdn.com</domain>
+
+        <!-- Instagram -->
+        <domain includeSubdomains="true">live-upload.instagram.com</domain>
+        <domain includeSubdomains="true">rtmp.instagram.com</domain>
+
+        <!-- Custom RTMP servers (local development) -->
+        <domain includeSubdomains="true">localhost</domain>
+        <domain includeSubdomains="true">10.0.0.0</domain>
+        <domain includeSubdomains="true">192.168.0.0</domain>
+
+        <!-- Debug: allow all local IPs -->
+        <domain-config cleartextTrafficPermitted="true">
+            <domain includeSubdomains="true">127.0.0.1</domain>
+        </domain-config>
+    </domain-config>
+
+    <!-- Debug-only: allow all cleartext traffic -->
+    <debug-overrides>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </debug-overrides>
+</network-security-config>

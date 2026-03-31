@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- ══════════════════════════════════ -->
+    <!-- Video Quality                      -->
+    <!-- ══════════════════════════════════ -->
+    <PreferenceCategory
+        android:title="Video Quality"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            android:key="pref_stream_quality"
+            android:title="@string/settings_video_resolution"
+            android:summary="Output video resolution"
+            android:entries="@array/quality_entries"
+            android:entryValues="@array/quality_values"
+            android:defaultValue="1080p"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="pref_stream_framerate"
+            android:title="@string/settings_video_framerate"
+            android:summary="Frames per second"
+            android:entries="@array/fps_entries"
+            android:entryValues="@array/fps_values"
+            android:defaultValue="30"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="pref_video_bitrate"
+            android:title="@string/settings_video_bitrate"
+            android:summary="Video encoder bitrate"
+            android:entries="@array/bitrate_entries"
+            android:entryValues="@array/bitrate_values"
+            android:defaultValue="4500"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <!-- ══════════════════════════════════ -->
+    <!-- Encoder                            -->
+    <!-- ══════════════════════════════════ -->
+    <PreferenceCategory
+        android:title="Encoder"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            android:key="pref_video_encoder"
+            android:title="@string/settings_video_encoder"
+            android:summary="Video encoding method"
+            android:entries="@array/encoder_entries"
+            android:entryValues="@array/encoder_values"
+            android:defaultValue="auto"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            android:key="pref_hw_encoding"
+            android:title="@string/settings_hw_encoding"
+            android:summary="@string/settings_hw_encoding_desc"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <!-- ══════════════════════════════════ -->
+    <!-- Audio                              -->
+    <!-- ══════════════════════════════════ -->
+    <PreferenceCategory
+        android:title="Audio"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            android:key="pref_audio_bitrate"
+            android:title="@string/settings_audio_bitrate"
+            android:summary="Audio encoder bitrate"
+            android:entries="@array/audio_bitrate_entries"
+            android:entryValues="@array/audio_bitrate_values"
+            android:defaultValue="128"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            android:key="pref_noise_suppression"
+            android:title="@string/settings_noise_suppression"
+            android:summary="@string/settings_noise_suppression_desc"
+            android:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            android:key="pref_echo_cancellation"
+            android:title="@string/settings_echo_cancellation"
+            android:summary="@string/settings_echo_cancellation_desc"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <!-- ══════════════════════════════════ -->
+    <!-- Streaming Behavior                 -->
+    <!-- ══════════════════════════════════ -->
+    <PreferenceCategory
+        android:title="Streaming Behavior"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat
+            android:key="pref_adaptive_bitrate"
+            android:title="@string/settings_adaptive_bitrate"
+            android:summary="@string/settings_adaptive_bitrate_desc"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="pref_auto_reconnect"
+            android:title="Auto-Reconnect"
+            android:summary="Automatically reconnect if stream is disconnected"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="pref_low_latency"
+            android:title="@string/settings_low_latency"
+            android:summary="@string/settings_low_latency_desc"
+            android:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            android:key="pref_show_stats"
+            android:title="@string/settings_show_stats"
+            android:summary="@string/settings_show_stats_desc"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <!-- ══════════════════════════════════ -->
+    <!-- Recording                          -->
+    <!-- ══════════════════════════════════ -->
+    <PreferenceCategory
+        android:title="Recording"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            android:key="pref_record_format"
+            android:title="@string/settings_record_format"
+            android:summary="Output file format"
+            android:entries="@array/format_entries"
+            android:entryValues="@array/format_values"
+            android:defaultValue="mp4"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            android:key="pref_record_audio"
+            android:title="@string/settings_record_audio"
+            android:summary="@string/settings_record_audio_desc"
+            android:defaultValue="true" />
+
+        <Preference
+            android:key="pref_record_path"
+            android:title="@string/settings_record_path"
+            android:summary="/storage/emulated/0/DualSpaceOBS/Recordings"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary"
+    android:fillViewport="true"
+    android:clipToPadding="false"
+    android:paddingBottom="@dimen/padding_standard">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/padding_standard">
+
+        <!-- ══════════════════════════════════ -->
+        <!-- Welcome Card                       -->
+        <!-- ══════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_welcome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_standard"
+            app:cardBackgroundColor="@color/background_card"
+            app:cardCornerRadius="@dimen/corner_radius_large"
+            app:cardElevation="@dimen/elevation_card"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_gradient_primary"
+                android:padding="@dimen/padding_xl">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_welcome_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.HeadlineSmall"
+                    android:textColor="@color/text_on_primary"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Welcome to Dual Space OBS" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_welcome_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodyMedium"
+                    android:textColor="@color/primary_200"
+                    app:layout_constraintTop_toBottomOf="@id/tv_welcome_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="Version 1.0.0" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_welcome_subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="Clone apps, stream &amp; record in virtual spaces"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodySmall"
+                    android:textColor="@color/primary_100"
+                    app:layout_constraintTop_toBottomOf="@id/tv_welcome_version"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ══════════════════════════════════ -->
+        <!-- Quick Actions Grid                -->
+        <!-- ══════════════════════════════════ -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_quick_actions_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quick Actions"
+            android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleSmall"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="@dimen/margin_xl"
+            app:layout_constraintTop_toBottomOf="@id/card_welcome"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <GridLayout
+            android:id="@+id/grid_quick_actions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:useDefaultMargins="true"
+            app:layout_constraintTop_toBottomOf="@id/tv_quick_actions_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Clone App Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_quick_clone"
+                style="@style/Widget.DualSpaceOBS.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height_large"
+                android:layout_columnWeight="1"
+                android:background="@drawable/bg_button_primary"
+                android:text="@string/btn_clone"
+                android:textColor="@color/text_on_primary"
+                android:drawableStart="@drawable/ic_clone"
+                android:drawableTint="@color/text_on_primary"
+                android:gravity="center" />
+
+            <!-- Start Recording Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_quick_record"
+                style="@style/Widget.DualSpaceOBS.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height_large"
+                android:layout_columnWeight="1"
+                android:background="@drawable/bg_button_accent"
+                android:text="@string/btn_start_recording"
+                android:textColor="@color/text_on_accent"
+                android:drawableStart="@drawable/ic_record"
+                android:drawableTint="@color/text_on_accent"
+                android:gravity="center" />
+
+            <!-- Start Streaming Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_quick_stream"
+                style="@style/Widget.DualSpaceOBS.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height_large"
+                android:layout_columnWeight="1"
+                android:background="@drawable/bg_button_accent"
+                android:text="@string/btn_start_stream"
+                android:textColor="@color/text_on_accent"
+                android:drawableStart="@drawable/ic_stream"
+                android:drawableTint="@color/text_on_accent"
+                android:gravity="center" />
+
+            <!-- Virtual Camera Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_quick_camera"
+                style="@style/Widget.DualSpaceOBS.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height_large"
+                android:layout_columnWeight="1"
+                android:background="@drawable/bg_button_primary"
+                android:text="@string/nav_camera"
+                android:textColor="@color/text_on_primary"
+                android:drawableStart="@drawable/ic_camera"
+                android:drawableTint="@color/text_on_primary"
+                android:gravity="center" />
+
+        </GridLayout>
+
+        <!-- ══════════════════════════════════ -->
+        <!-- Recent Cloned Apps Section        -->
+        <!-- ══════════════════════════════════ -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_recent_clones_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Recent Clones"
+            android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleSmall"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="@dimen/margin_xl"
+            app:layout_constraintTop_toBottomOf="@id/grid_quick_actions"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_see_all_clones" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_see_all_clones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="See All"
+            android:textAppearance="@style/TextAppearance.DualSpaceOBS.LabelLarge"
+            android:textColor="@color/primary_400"
+            android:padding="@dimen/padding_small"
+            android:background="?attr/selectableItemBackground"
+            android:layout_marginTop="@dimen/margin_xl"
+            app:layout_constraintTop_toBottomOf="@id/grid_quick_actions"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_recent_clones"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/margin_small"
+            android:paddingEnd="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@id/tv_recent_clones_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:listitem="@layout/item_clone_list" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_no_recent_clones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_cloned_apps"
+            android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodyMedium"
+            android:textColor="@color/text_hint"
+            android:paddingVertical="@dimen/padding_xl"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tv_recent_clones_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:visibility="visible" />
+
+        <!-- ══════════════════════════════════ -->
+        <!-- System Stats Card                 -->
+        <!-- ══════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_system_stats"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/background_card"
+            app:cardCornerRadius="@dimen/corner_radius_large"
+            app:cardElevation="@dimen/elevation_card"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_no_recent_clones"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_xl">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_system_stats_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="System Info"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleMedium"
+                    android:textColor="@color/text_primary" />
+
+                <!-- RAM Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/margin_medium">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="RAM"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.LabelLarge"
+                        android:textColor="@color/text_secondary"
+                        android:minWidth="48dp" />
+
+                    <ProgressBar
+                        android:id="@+id/progress_ram"
+                        style="@style/ProgressBar.Horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/progress_bar_height_thick"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_ram_used"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.Caption"
+                        android:textColor="@color/text_primary"
+                        tools:text="2.1 GB" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_ram_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.Caption"
+                        android:textColor="@color/text_hint"
+                        tools:text="/ 8 GB" />
+                </LinearLayout>
+
+                <!-- Storage Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/margin_medium">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Storage"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.LabelLarge"
+                        android:textColor="@color/text_secondary"
+                        android:minWidth="48dp" />
+
+                    <ProgressBar
+                        android:id="@+id/progress_storage"
+                        style="@style/ProgressBar.Horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/progress_bar_height_thick"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_storage_used"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.Caption"
+                        android:textColor="@color/text_primary"
+                        tools:text="45 GB" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_storage_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.Caption"
+                        android:textColor="@color/text_hint"
+                        tools:text="/ 128 GB" />
+                </LinearLayout>
+
+                <!-- CPU Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/margin_medium">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CPU"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.LabelLarge"
+                        android:textColor="@color/text_secondary"
+                        android:minWidth="48dp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_cpu_cores"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.Caption"
+                        android:textColor="@color/text_primary"
+                        tools:text="8 cores" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ══════════════════════════════════ -->
+        <!-- Tips Card                         -->
+        <!-- ══════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_tips"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:layout_marginBottom="@dimen/margin_standard"
+            app:cardBackgroundColor="@color/background_card"
+            app:cardCornerRadius="@dimen/corner_radius_large"
+            app:cardElevation="@dimen/elevation_card"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toBottomOf="@id/card_system_stats"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_xl">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_tips_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💡 Pro Tip"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleSmall"
+                    android:textColor="@color/accent_400"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_next_tip"
+                    style="@style/Widget.DualSpaceOBS.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Next"
+                    android:textColor="@color/primary_400"
+                    android:minWidth="0dp"
+                    android:paddingHorizontal="@dimen/padding_small"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_tip_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodyMedium"
+                    android:textColor="@color/text_secondary"
+                    android:maxLines="3"
+                    android:ellipsize="end"
+                    app:layout_constraintTop_toBottomOf="@id/tv_tips_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Tip: Enable the floating panel in Settings to control recording from any app." />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

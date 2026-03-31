@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll_settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary"
+    android:fillViewport="true"
+    android:clipToPadding="false"
+    android:paddingBottom="@dimen/padding_standard">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/padding_standard">
+
+        <!-- ══════════════════════════════════ -->
+        <!-- General Card                       -->
+        <!-- ══════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_general"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/background_card"
+            app:cardCornerRadius="@dimen/corner_radius_large"
+            app:cardElevation="@dimen/elevation_card"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_xl"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_xx_large"
+                    android:layout_height="@dimen/icon_xx_large"
+                    android:src="@drawable/ic_settings"
+                    android:tint="@color/primary_400"
+                    android:contentDescription="@string/settings_general" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/padding_medium"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_general"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleMedium"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_general_summary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_tiny"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodySmall"
+                        android:textColor="@color/text_hint"
+                        tools:text="Theme, language, notifications, auto-start" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/icon_standard"
+                    android:layout_height="@dimen/icon_standard"
+                    android:src="@android:drawable/ic_media_play"
+                    android:rotation="90"
+                    android:tint="@color/text_disabled"
+                    android:contentDescription="Open" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ══════════════════════════════════ -->
+        <!-- Virtual Space Card                 -->
+        <!-- ══════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_virtual_space"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/background_card"
+            app:cardCornerRadius="@dimen/corner_radius_large"
+            app:cardElevation="@dimen/elevation_card"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toBottomOf="@id/card_general"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_xl"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_xx_large"
+                    android:layout_height="@dimen/icon_xx_large"
+                    android:src="@drawable/ic_clone"
+                    android:tint="@color/accent_400"
+                    android:contentDescription="Virtual Space" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/padding_medium"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Virtual Space"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleMedium"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_virtual_space_summary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_tiny"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodySmall"
+                        android:textColor="@color/text_hint"
+                        tools:text="Clone location, sandbox mode, storage" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/icon_standard"
+                    android:layout_height="@dimen/icon_standard"
+                    android:src="@android:drawable/ic_media_play"
+                    android:rotation="90"
+                    android:tint="@color/text_disabled"
+                    android:contentDescription="Open" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ══════════════════════════════════ -->
+        <!-- OBS / Streaming Card               -->
+        <!-- ══════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_obs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/background_card"
+            app:cardCornerRadius="@dimen/corner_radius_large"
+            app:cardElevation="@dimen/elevation_card"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toBottomOf="@id/card_virtual_space"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_xl"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_xx_large"
+                    android:layout_height="@dimen/icon_xx_large"
+                    android:src="@drawable/ic_obs"
+                    android:tint="@color/status_streaming_green"
+                    android:contentDescription="@string/settings_streaming" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/padding_medium"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_streaming"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleMedium"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_obs_summary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_tiny"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodySmall"
+                        android:textColor="@color/text_hint"
+                        tools:text="Quality, encoder, bitrate, auto-reconnect" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/icon_standard"
+                    android:layout_height="@dimen/icon_standard"
+                    android:src="@android:drawable/ic_media_play"
+                    android:rotation="90"
+                    android:tint="@color/text_disabled"
+                    android:contentDescription="Open" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ══════════════════════════════════ -->
+        <!-- Camera Card                        -->
+        <!-- ══════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_camera"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/background_card"
+            app:cardCornerRadius="@dimen/corner_radius_large"
+            app:cardElevation="@dimen/elevation_card"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toBottomOf="@id/card_obs"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_xl"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_xx_large"
+                    android:layout_height="@dimen/icon_xx_large"
+                    android:src="@drawable/ic_camera"
+                    android:tint="@color/accent_300"
+                    android:contentDescription="@string/nav_camera" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/padding_medium"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nav_camera"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleMedium"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_camera_summary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_tiny"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodySmall"
+                        android:textColor="@color/text_hint"
+                        tools:text="Resolution, FPS, source selection" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/icon_standard"
+                    android:layout_height="@dimen/icon_standard"
+                    android:src="@android:drawable/ic_media_play"
+                    android:rotation="90"
+                    android:tint="@color/text_disabled"
+                    android:contentDescription="Open" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ══════════════════════════════════ -->
+        <!-- Storage Card                       -->
+        <!-- ══════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_storage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/background_card"
+            app:cardCornerRadius="@dimen/corner_radius_large"
+            app:cardElevation="@dimen/elevation_card"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toBottomOf="@id/card_camera"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_xl"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_xx_large"
+                    android:layout_height="@dimen/icon_xx_large"
+                    android:src="@drawable/ic_screenshot"
+                    android:tint="@color/primary_300"
+                    android:contentDescription="Storage" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/padding_medium"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Storage"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleMedium"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_storage_summary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_tiny"
+                        android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodySmall"
+                        android:textColor="@color/text_hint"
+                        tools:text="Recording path, cleanup, auto-delete" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/icon_standard"
+                    android:layout_height="@dimen/icon_standard"
+                    android:src="@android:drawable/ic_media_play"
+                    android:rotation="90"
+                    android:tint="@color/text_disabled"
+                    android:contentDescription="Open" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ══════════════════════════════════ -->
+        <!-- About Card                         -->
+        <!-- ══════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_about"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/background_card"
+            app:cardCornerRadius="@dimen/corner_radius_large"
+            app:cardElevation="@dimen/elevation_card"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toBottomOf="@id/card_storage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_xl">
+
+                <!-- About Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_xx_large"
+                        android:layout_height="@dimen/icon_xx_large"
+                        android:src="@drawable/ic_home"
+                        android:tint="@color/primary_400"
+                        android:contentDescription="@string/settings_about" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/padding_medium"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_about"
+                            android:textAppearance="@style/TextAppearance.DualSpaceOBS.TitleMedium"
+                            android:textColor="@color/text_primary" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tv_about_summary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_tiny"
+                            android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodySmall"
+                            android:textColor="@color/text_hint"
+                            tools:text="Version, licenses, privacy policy" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginVertical="@dimen/margin_medium" />
+
+                <!-- Version Info -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_app_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodyMedium"
+                    android:textColor="@color/text_secondary"
+                    tools:text="Version 1.0.0 (1)" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_build_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.Caption"
+                    android:textColor="@color/text_hint"
+                    tools:text="Build: debug | SDK 34" />
+
+                <!-- Links -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_privacy_policy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/settings_privacy_policy"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodyMedium"
+                    android:textColor="@color/primary_400"
+                    android:padding="@dimen/padding_small"
+                    android:background="?attr/selectableItemBackground" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_terms_of_service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_terms_of_service"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodyMedium"
+                    android:textColor="@color/primary_400"
+                    android:padding="@dimen/padding_small"
+                    android:background="?attr/selectableItemBackground" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_open_source_licenses"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_licenses"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodyMedium"
+                    android:textColor="@color/primary_400"
+                    android:padding="@dimen/padding_small"
+                    android:background="?attr/selectableItemBackground" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_check_updates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_check_updates"
+                    android:textAppearance="@style/TextAppearance.DualSpaceOBS.BodyMedium"
+                    android:textColor="@color/primary_400"
+                    android:padding="@dimen/padding_small"
+                    android:background="?attr/selectableItemBackground" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

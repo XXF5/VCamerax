@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="@color/status_streaming_green">
+    <!-- Broadcast / streaming icon -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2zM12,20c-4.42,0 -8,-3.58 -8,-8s3.58,-8 8,-8 8,3.58 8,8 -3.58,8 -8,8z" />
+    <!-- Signal waves -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3zM12,13c-0.55,0 -1,-0.45 -1,-1s0.45,-1 1,-1 1,0.45 1,1 -0.45,1 -1,1z" />
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M8.76,8.76c-1.28,1.28 -1.28,3.19 0,4.47"
+        android:strokeWidth="1.5"
+        android:strokeColor="@android:color/white"
+        android:fillAlpha="0" />
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M15.24,8.76c1.28,1.28 1.28,3.19 0,4.47"
+        android:strokeWidth="1.5"
+        android:strokeColor="@android:color/white"
+        android:fillAlpha="0" />
+</vector>
